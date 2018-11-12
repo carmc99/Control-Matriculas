@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Control</string>
+    <string name="titulo_seccion">Titulo de la seccion</string>
+    <string name="version_app">Version 1.0</string>
+    <string name="autor">Carlos Medina</string>
+    <string name="listado_grupos">Listado de grupos:</string>
+    <string name="listado_estudiantes">Listado de estudiantes:</string>
+
+    <!-- Botones -->
+    <string name="añadirEstudiante">Añadir estudiante</string>
+    <string name="añadirGrupo">Añadir grupo</string>
+    <string name="editarEstudiante">Editar</string>
+    <string name="eliminarEstudainte">Eliminar</string>
+    <string name="title_activity_main">Main</string>
+
+    <!--Seccion-->
+    <string name="seccionListaEstudiantes">Lista de estudiantes</string>
+
+
+    <!--Crear estudiante-->
+    <string name="infoContacto">Información de contacto: </string>
+
+
+</resources>

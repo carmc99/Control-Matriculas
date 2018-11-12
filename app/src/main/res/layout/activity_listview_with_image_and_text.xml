@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Adapters.ListViewWithImageAndText">
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="fill_parent"
+        android:layout_height="451dp" />
+
+    <Button
+        android:id="@+id/btnAddGrupo"
+        style="@style/BtnPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/añadirGrupo"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="495dp" />
+
+</LinearLayout>
