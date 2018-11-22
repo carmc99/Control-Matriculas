@@ -5,10 +5,12 @@ package com.example.carlosmedina.control;
 
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.carlosmedina.control.Adapters.AdaptadorEstudiante;
+import com.example.carlosmedina.control.Controller.ControllerDetalleEst;
 import com.example.carlosmedina.control.DataBase.daoEstudiante;
 import com.example.carlosmedina.control.Model.Estudiante;
 
@@ -35,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
         lstEstudiante = daoEst.getLstEstudiantes();
 
         //Referencia a los elementos del activity
-        ListView listview = (ListView) findViewById(R.id.listview);
+
         Button añadirEst = (Button) findViewById(R.id.btnAddEstudiante);
+
 
 
         //Dialogo formulario crear nuevo estudiante
@@ -46,16 +49,19 @@ public class MainActivity extends AppCompatActivity {
         dialogo.setContentView(aux);
 
         adaptadorEst = new AdaptadorEstudiante(this, lstEstudiante, daoEst);
+        ListView listview = (ListView) findViewById(R.id.listview);
         listview.setAdapter(adaptadorEst);
+
+
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Ver detalle estudiante
-                final Dialog dialog = new Dialog(getApplication(), android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);
-                dialog.setTitle("Editar registro");
-                dialog.setCancelable(true);
-                dialog.setContentView(R.layout.activity_detalle_estudiante);
+                final Dialog dialog;
+                View aux1 = getLayoutInflater().inflate(R.layout.activity_detalle_estudiante, null);
+                dialog = new Dialog(getApplication(), android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+                dialog.setContentView(aux1);
                 dialog.show();
                 //Terminar...........
             }
@@ -71,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 final EditText celular = (EditText) dialogo.findViewById(R.id.celular);
                 final EditText fijo = (EditText) dialogo.findViewById(R.id.fijo);
                 final EditText email = (EditText) dialogo.findViewById(R.id.email);
+                final EditText pago = (EditText) dialogo.findViewById(R.id.pago);
                 Button btnGuardar = (Button) dialogo.findViewById(R.id.btnCrearEstudiante);
                 Button btnCancelar = (Button) dialogo.findViewById(R.id.btnCancelar);
                 btnGuardar.setOnClickListener(new View.OnClickListener() {
@@ -84,8 +91,9 @@ public class MainActivity extends AppCompatActivity {
                                     nombre.getText().toString(),
                                     apellidos.getText().toString(),
                                     celular.getText().toString(),
-                                    fijo.getText().toString()
-                                    //email.getText().toString()
+                                    fijo.getText().toString(),
+                                    email.getText().toString(),
+                                    pago.getText().toString()
                             );
                             daoEst.insertar(e);
                             lstEstudiante = daoEst.getLstEstudiantes();

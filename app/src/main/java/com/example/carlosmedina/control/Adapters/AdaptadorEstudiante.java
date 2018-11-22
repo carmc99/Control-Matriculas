@@ -70,7 +70,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
         Button btnEditar = (Button) v.findViewById(R.id.editar1);
         Button btnEliminar = (Button) v.findViewById(R.id.elim1);
         TextView columna1 = (TextView) v.findViewById(R.id.nombre);
-        TextView columna2 = (TextView) v.findViewById(R.id.faltas);
+        //TextView columna2 = (TextView) v.findViewById(R.id.faltas);
         TextView columna3 = (TextView) v.findViewById(R.id.pago);
 
 
@@ -81,7 +81,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
         //Rellenamos los valores de cada columna de la fila
         columna1.setText(est.getNombre() + " " + est.getApellido());
         //columna2.setText(est.getApellido());
-        //columna3.setText(est.getNombre());
+        columna3.setText(est.getPago());
 
         //Boton editar
         btnEditar.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +100,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 final EditText celular = (EditText) dialog.findViewById(R.id.celular);
                 final EditText fijo = (EditText) dialog.findViewById(R.id.fijo);
                 final EditText email = (EditText) dialog.findViewById(R.id.email);
+                final EditText pago = (EditText) dialog.findViewById(R.id.pago);
                 Button btnGuardar = (Button) dialog.findViewById(R.id.btnCrearEstudiante);
                 Button btnCancelar = (Button) dialog.findViewById(R.id.btnCancelar);
                 est = lstEstudiante.get(pos);
@@ -110,6 +111,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 apellidos.setText(est.getApellido());
                 celular.setText(est.getCelular());
                 fijo.setText(est.getTelFijo());
+                pago.setText(est.getPago());
 
                 btnGuardar.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -122,8 +124,10 @@ public class AdaptadorEstudiante extends BaseAdapter {
                                     nombre.getText().toString(),
                                     apellidos.getText().toString(),
                                     celular.getText().toString(),
-                                    fijo.getText().toString()
-                                    //email.getText().toString()
+                                    fijo.getText().toString(),
+                                    email.getText().toString(),
+                                    pago.getText().toString()
+
                             );
                             daoEst.editar(est);
                             lstEstudiante = daoEst.getLstEstudiantes();

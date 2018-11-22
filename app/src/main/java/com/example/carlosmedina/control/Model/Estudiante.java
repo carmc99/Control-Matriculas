@@ -14,24 +14,30 @@ public class Estudiante {
     private String telFijo;
     private String email;
     private int faltas;
-    private int pago;
+    private String pago;
 
-    public Estudiante(int id, int cedula,String nombre, String apellido, String celular, String telFijo ) {
+    public Estudiante(int id, int cedula,String nombre, String apellido, String celular, String telFijo, String email, String pago ) {
         this.id = id;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
         this.telFijo = telFijo;
+        this.email = email;
+        this.pago = pago;
     }
 
-    public Estudiante(int cedula,String nombre, String apellido, String celular, String telFijo ) {
+    public Estudiante(int cedula,String nombre, String apellido, String celular, String telFijo, String email, String pago ) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
         this.telFijo = telFijo;
+        this.email = email;
+        this.pago = pago;
     }
+
+
 
 
     public Estudiante() {
@@ -53,11 +59,11 @@ public class Estudiante {
         this.faltas = faltas;
     }
 
-    public int getPago() {
+    public String getPago() {
         return pago;
     }
 
-    public void setPago(int pago) {
+    public void setPago(String pago) {
         this.pago = pago;
     }
 

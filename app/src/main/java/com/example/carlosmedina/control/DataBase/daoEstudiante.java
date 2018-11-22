@@ -18,10 +18,12 @@ public class daoEstudiante{
     Context cx;
     String nombreDb = "DbEstudiantes";
     //String tabla = "create table if not exists estudiante( cedula integer primary key autoincrement, pago integer, falta integer, nombre text, apellido text, fechaInscripcion text, celular text, telFijo text, email text)";
-    String tabla = "CREATE TABLE IF NOT EXISTS ESTUDIANTE(ID INTEGER PRIMARY KEY AUTOINCREMENT, CEDULA INTEGER, NOMBRE TEXT, APELLIDO TEXT, CELULAR TEXT, TELFIJO TEXT)";
+    String tabla = "CREATE TABLE IF NOT EXISTS ESTUDIANTE(ID INTEGER PRIMARY KEY AUTOINCREMENT, CEDULA INTEGER, NOMBRE TEXT, APELLIDO TEXT, CELULAR TEXT, TELFIJO TEXT, EMAIL TEXT, PAGO TEXT)";
 
     public daoEstudiante(Context cx) {
         this.cx = cx;
+        /*String clearDBQuery = "DELETE FROM " + "ESTUDIANTE";
+        db.execSQL(clearDBQuery);*/
         db = cx.openOrCreateDatabase(nombreDb, Context.MODE_PRIVATE, null);
         db.execSQL(tabla);
 
@@ -31,14 +33,14 @@ public class daoEstudiante{
     public boolean insertar(Estudiante e) {
             ContentValues contenedor = new ContentValues();
             contenedor.put("cedula", e.getCedula());
-            //contenedor.put("pago", );
+            contenedor.put("pago", e.getPago());
             //contenedor.put("falta", 1);
             contenedor.put("nombre", e.getNombre());
             contenedor.put("apellido", e.getApellido());
             //contenedor.put("fechaInscripcion", "15/32");
             contenedor.put("celular", e.getCelular());
             contenedor.put("telFijo", e.getTelFijo());
-            //contenedor.put("email", "gmai@gmaul.com");
+            contenedor.put("email", e.getEmail());
 
         return (db.insert("estudiante", null, contenedor))>0;
     }
@@ -50,14 +52,14 @@ public class daoEstudiante{
     public boolean editar(Estudiante e) {
         ContentValues contenedor = new ContentValues();
         contenedor.put("cedula", e.getCedula());
-        //contenedor.put("pago", );
+        contenedor.put("pago", e.getPago());
         //contenedor.put("falta", 1);
         contenedor.put("nombre", e.getNombre());
         contenedor.put("apellido", e.getApellido());
         //contenedor.put("fechaInscripcion", "15/32");
         contenedor.put("celular", e.getCelular());
         contenedor.put("telFijo", e.getTelFijo());
-        //contenedor.put("email", "gmai@gmaul.com");
+        contenedor.put("email", e.getEmail());
 
         return (db.update("estudiante", contenedor, "ID=" + e.getId(),null))>0;
     }
@@ -75,8 +77,9 @@ public class daoEstudiante{
                         curso.getString(2),  //nombres
                         curso.getString(3),  //apellidos
                         curso.getString(4),  //celular
-                        curso.getString(5)  //telFijo
-                        //curso.getString(8)   //Email
+                        curso.getString(5),  //telFijo
+                        curso.getString(6),   //Email
+                        curso.getString(7)       //pago
                 ));
             } while (curso.moveToNext());
         }
@@ -93,7 +96,9 @@ public class daoEstudiante{
                 curso.getString(2),  //nombres
                 curso.getString(3),  //apellidos
                 curso.getString(4),  //celular
-                curso.getString(5)  //telFijo
+                curso.getString(5),  //telFijo
+                curso.getString(6),  //email
+                curso.getString(7)      //pago
         );
         return est;
     }
