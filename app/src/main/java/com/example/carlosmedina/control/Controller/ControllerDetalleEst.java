@@ -10,6 +10,6 @@ public class ControllerDetalleEst extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_estudiante);
+        setContentView(R.layout.listview_row);
     }
 }

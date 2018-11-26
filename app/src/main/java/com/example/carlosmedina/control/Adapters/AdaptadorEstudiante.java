@@ -56,7 +56,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         est = lstEstudiante.get(position);
-        return est.getCedula();
+        return est.getId();
     }
 
     @Override
@@ -67,14 +67,16 @@ public class AdaptadorEstudiante extends BaseAdapter {
             v = li.inflate(R.layout.listview_row, null);
         }
         est = lstEstudiante.get(position);
+        Button btnVer = (Button) v.findViewById(R.id.ver);
         Button btnEditar = (Button) v.findViewById(R.id.editar1);
         Button btnEliminar = (Button) v.findViewById(R.id.elim1);
         TextView columna1 = (TextView) v.findViewById(R.id.nombre);
-        //TextView columna2 = (TextView) v.findViewById(R.id.faltas);
+
         TextView columna3 = (TextView) v.findViewById(R.id.pago);
 
 
         //Referencia a la numero de el boton en la lista.
+        btnVer.setTag(position);
         btnEditar.setTag(position);
         btnEliminar.setTag(position);
 
@@ -137,6 +139,52 @@ public class AdaptadorEstudiante extends BaseAdapter {
                             Toast.makeText(activity, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
 
+                    }
+                });
+            }
+        });
+        //Bton ver
+        btnVer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int pos = Integer.parseInt(v.getTag().toString());
+                final Dialog dialog = new Dialog(activity, android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);
+                dialog.setTitle("Ver registro");
+                dialog.setCancelable(true);
+                dialog.setContentView(R.layout.activity_detalle_estudiante);
+                dialog.show();
+                Button btnVolver = (Button) dialog.findViewById(R.id.btnVolver);
+                try {
+                    final TextView cedula = (TextView) dialog.findViewById(R.id.data_cedula);
+                    final TextView nombre = (TextView) dialog.findViewById(R.id.nombre_estudiante);
+                    final TextView acudiente = (TextView) dialog.findViewById(R.id.data_acudiente);
+                    final TextView celular = (TextView) dialog.findViewById(R.id.data_celular);
+                    final TextView fijo = (TextView) dialog.findViewById(R.id.data_tel_fijo);
+                    final TextView email = (TextView) dialog.findViewById(R.id.data_email);
+
+                    final TextView pago = (TextView) dialog.findViewById(R.id.data_pago);
+
+
+                    est = lstEstudiante.get(pos);
+                    setId(est.getId());
+                    nombre.setText(est.getNombre());
+                    cedula.setText((Integer.toString(est.getCedula())));
+                    //acudiente.setText(est.ge);
+                    celular.setText(est.getCelular());
+                    fijo.setText(est.getTelFijo());
+                    email.setText(est.getEmail());
+                    pago.setText(est.getPago());
+                }catch (Exception e){
+                    Toast.makeText(activity, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
+                btnVolver.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
                     }
                 });
             }

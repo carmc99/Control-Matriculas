@@ -4,7 +4,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/linear_layout"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:descendantFocusability="blocksDescendants">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,12 +25,19 @@
 
             <TextView
                 android:id="@+id/nombre"
-                android:layout_width="105dp"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text=""
                 android:textAlignment="center"
                 android:textAllCaps="true" />
+            <Button
+                android:id="@+id/ver"
+                android:layout_width="1dp"
+                android:layout_height="40dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/ic_info_blue_24dp"
+                />
 
             <Button
                 android:id="@+id/editar1"
@@ -45,6 +54,7 @@
                 android:layout_weight="0.5"
                 android:background="@drawable/ic_delete_red_24dp"
            />
+
         </LinearLayout>
 
 

@@ -17,7 +17,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="@android:drawable/dialog_holo_light_frame"
-            android:srcCompat="@drawable/ic_group_black_24dp" />
+            android:src="@drawable/ic_group_black_24dp" />
 
         <TextView
             android:id="@+id/labelSeccion2"
@@ -103,5 +103,6 @@
         android:layout_marginRight="10dp"
         android:dividerHeight="1dp"
         android:padding="2dp"
-        android:paddingEnd="5dp" />
+        android:paddingEnd="5dp"
+        />
 </RelativeLayout>

@@ -53,19 +53,6 @@ public class MainActivity extends AppCompatActivity {
         listview.setAdapter(adaptadorEst);
 
 
-
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Ver detalle estudiante
-                final Dialog dialog;
-                View aux1 = getLayoutInflater().inflate(R.layout.activity_detalle_estudiante, null);
-                dialog = new Dialog(getApplication(), android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-                dialog.setContentView(aux1);
-                dialog.show();
-                //Terminar...........
-            }
-        });
         añadirEst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
