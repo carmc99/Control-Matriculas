@@ -10,9 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.carlosmedina.control.Adapters.AdaptadorEstudiante;
+import com.example.carlosmedina.control.Adapters.AdaptadorGrupo;
 import com.example.carlosmedina.control.Controller.ControllerDetalleEst;
 import com.example.carlosmedina.control.DataBase.daoEstudiante;
+import com.example.carlosmedina.control.DataBase.daoGrupo;
 import com.example.carlosmedina.control.Model.Estudiante;
+import com.example.carlosmedina.control.Model.Grupo;
 
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,6 +27,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+
     daoEstudiante daoEst;
     AdaptadorEstudiante adaptadorEst;
     ArrayList<Estudiante> lstEstudiante;

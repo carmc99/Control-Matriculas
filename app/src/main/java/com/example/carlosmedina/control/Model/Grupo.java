@@ -1,11 +1,24 @@
 package com.example.carlosmedina.control.Model;
 
+import android.graphics.drawable.Icon;
+
 public class Grupo {
     private String nombre;
     private int id;
     private String descripcion;
 
     public Grupo() {
+    }
+
+    public Grupo(String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
+    public Grupo(int id, String nombre, String descripcion) {
+        this.nombre = nombre;
+        this.id = id;
+        this.descripcion = descripcion;
     }
 
     public String getNombre() {

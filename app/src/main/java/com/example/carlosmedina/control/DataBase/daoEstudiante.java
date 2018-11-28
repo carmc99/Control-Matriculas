@@ -19,7 +19,7 @@ public class daoEstudiante{
     String nombreDb = "DbEstudiantes";
     //String tabla = "create table if not exists estudiante( cedula integer primary key autoincrement, pago integer, falta integer, nombre text, apellido text, fechaInscripcion text, celular text, telFijo text, email text)";
     String tabla = "CREATE TABLE IF NOT EXISTS ESTUDIANTE(ID INTEGER PRIMARY KEY AUTOINCREMENT, CEDULA INTEGER, NOMBRE TEXT, APELLIDO TEXT, CELULAR TEXT, TELFIJO TEXT, EMAIL TEXT, PAGO TEXT)";
-
+    //String tabla = "CREATE TABLE IF NOT EXISTS ESTUDIANTE(ID INTEGER PRIMARY KEY AUTOINCREMENT, CEDULA INTEGER, NOMBRE TEXT, APELLIDO TEXT, CELULAR TEXT, TELFIJO TEXT, EMAIL TEXT, PAGO TEXT)";
     public daoEstudiante(Context cx) {
         this.cx = cx;
         /*String clearDBQuery = "DELETE FROM " + "ESTUDIANTE";
