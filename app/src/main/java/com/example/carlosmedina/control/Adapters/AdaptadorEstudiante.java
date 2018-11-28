@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -156,7 +155,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 Button btnVolver = (Button) dialog.findViewById(R.id.btnVolver);
                 try {
                     final TextView cedula = (TextView) dialog.findViewById(R.id.data_cedula);
-                    final TextView nombre = (TextView) dialog.findViewById(R.id.nombre_estudiante);
+                    final TextView nombre = (TextView) dialog.findViewById(R.id.titulo_inicio);
                     final TextView acudiente = (TextView) dialog.findViewById(R.id.data_acudiente);
                     final TextView celular = (TextView) dialog.findViewById(R.id.data_celular);
                     final TextView fijo = (TextView) dialog.findViewById(R.id.data_tel_fijo);
