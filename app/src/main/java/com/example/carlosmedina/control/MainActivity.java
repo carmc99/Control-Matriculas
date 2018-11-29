@@ -5,20 +5,14 @@ package com.example.carlosmedina.control;
 
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.carlosmedina.control.Adapters.AdaptadorEstudiante;
-import com.example.carlosmedina.control.Adapters.AdaptadorGrupo;
-import com.example.carlosmedina.control.Controller.ControllerDetalleEst;
 import com.example.carlosmedina.control.DataBase.daoEstudiante;
-import com.example.carlosmedina.control.DataBase.daoGrupo;
 import com.example.carlosmedina.control.Model.Estudiante;
-import com.example.carlosmedina.control.Model.Grupo;
 
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -54,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         dialogo.setContentView(aux);
 
         adaptadorEst = new AdaptadorEstudiante(this, lstEstudiante, daoEst);
-        ListView listview = (ListView) findViewById(R.id.listview);
+        ListView listview = (ListView) findViewById(R.id.listview_general);
         listview.setAdapter(adaptadorEst);
 
 

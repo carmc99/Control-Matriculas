@@ -42,7 +42,7 @@ public class ControllerInicio extends AppCompatActivity {
         btnEstudiantes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(activity, MainActivity.class );
+                Intent i = new Intent(activity, ControllerLstGeneralEst.class );
                 startActivity(i);
             }
         });

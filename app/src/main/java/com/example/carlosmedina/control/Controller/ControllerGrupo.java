@@ -1,10 +1,12 @@
 package com.example.carlosmedina.control.Controller;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -14,6 +16,7 @@ import com.example.carlosmedina.control.Adapters.AdaptadorEstudiante;
 import com.example.carlosmedina.control.Adapters.AdaptadorGrupo;
 import com.example.carlosmedina.control.DataBase.daoEstudiante;
 import com.example.carlosmedina.control.DataBase.daoGrupo;
+import com.example.carlosmedina.control.MainActivity;
 import com.example.carlosmedina.control.Model.Estudiante;
 import com.example.carlosmedina.control.Model.Grupo;
 import com.example.carlosmedina.control.R;
@@ -45,6 +48,15 @@ public class ControllerGrupo extends AppCompatActivity {
         adaptadorGrupo = new AdaptadorGrupo(this, lstGrupos, daoGroup);
         ListView listview = (ListView) findViewById(R.id.list_view);
         listview.setAdapter(adaptadorGrupo);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(getApplication(), "" + position, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplication(), MainActivity.class );
+                startActivity(i);
+            }
+        });
 
         añadirGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +96,5 @@ public class ControllerGrupo extends AppCompatActivity {
                 });
             }
         });
-
-
     }
 }

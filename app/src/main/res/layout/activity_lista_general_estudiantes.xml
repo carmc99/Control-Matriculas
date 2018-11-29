@@ -53,7 +53,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_column="0"
                 android:padding="3dip"
-                android:text="Pago"
+                android:text="Grupo"
                 android:textAlignment="center"
                 android:textColor="@android:color/white" />
 
@@ -73,13 +73,13 @@
     </TableRow>
 
     <Button
-        android:id="@+id/btnAddEstudiante"
+        android:id="@+id/btnVolver"
         style="@style/BtnPrimary"
         android:layout_width="372dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/añadirEstudiante"
+        android:text="Volver"
         tools:layout_editor_absoluteX="12dp"
         tools:layout_editor_absoluteY="495dp" />
 
