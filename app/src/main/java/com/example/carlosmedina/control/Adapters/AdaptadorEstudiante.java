@@ -117,7 +117,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 btnGuardar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // Crear un nuevo estudiante
+                        // actualiza un estudiante
                         try {
 
                             est = new Estudiante(getId(),
@@ -196,7 +196,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 int pos = Integer.parseInt(v.getTag().toString());
                 est = lstEstudiante.get(pos);
                 AlertDialog.Builder confirma = new AlertDialog.Builder(activity);
-                confirma.setMessage("¿Estas seguro querer eliminar este estudiante?");
+                confirma.setMessage("¿Estas seguro de querer eliminar este estudiante?");
                 confirma.setCancelable(false);
 
                 confirma.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

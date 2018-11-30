@@ -8,9 +8,9 @@
 
     <ListView
         android:id="@+id/list_view"
-        android:descendantFocusability="blocksDescendants"
         android:layout_width="fill_parent"
-        android:layout_height="451dp" />
+        android:layout_height="455dp"
+        android:descendantFocusability="blocksDescendants" />
 
     <Button
         android:id="@+id/btnAddGrupo"
@@ -22,5 +22,6 @@
         android:text="@string/añadirGrupo"
         tools:layout_editor_absoluteX="12dp"
         tools:layout_editor_absoluteY="495dp" />
+
 
 </LinearLayout>

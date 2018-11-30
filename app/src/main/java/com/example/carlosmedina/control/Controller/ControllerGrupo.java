@@ -53,7 +53,10 @@ public class ControllerGrupo extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(getApplication(), "" + position, Toast.LENGTH_SHORT).show();
+                Bundle extras = new Bundle();
+                extras.putInt("grupoId", position);
                 Intent i = new Intent(getApplication(), MainActivity.class );
+                i .putExtras(extras);  //Envia el Id de referencias a Mainactivity, para determinar que estudiantes mostrar
                 startActivity(i);
             }
         });

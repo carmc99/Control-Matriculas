@@ -27,13 +27,21 @@ public class MainActivity extends AppCompatActivity {
     AdaptadorEstudiante adaptadorEst;
     ArrayList<Estudiante> lstEstudiante;
     Estudiante e;
+    int grupoId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_estudiantes2);
         daoEst = new daoEstudiante(this);
+        Bundle intentExtras = getIntent().getExtras();
+        if (intentExtras != null) {
+            grupoId = intentExtras.getInt("grupoId");
+        }
+
         lstEstudiante = daoEst.getLstEstudiantes();
+
 
         //Referencia a los elementos del activity
 
@@ -50,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         adaptadorEst = new AdaptadorEstudiante(this, lstEstudiante, daoEst);
         ListView listview = (ListView) findViewById(R.id.listview_general);
         listview.setAdapter(adaptadorEst);
+
 
 
         añadirEst.setOnClickListener(new View.OnClickListener() {
@@ -79,10 +88,13 @@ public class MainActivity extends AppCompatActivity {
                                     celular.getText().toString(),
                                     fijo.getText().toString(),
                                     email.getText().toString(),
-                                    pago.getText().toString()
+                                    pago.getText().toString(),
+                                    grupoId
                             );
+                            e.setGrupo(grupoId);
                             daoEst.insertar(e);
-                            lstEstudiante = daoEst.getLstEstudiantes();
+                            //CORREGIR!!! NO MUESTRA LOS ESTUDIANTES FILTRADOS POR GRUPOS ->>>>
+                            lstEstudiante = daoEst.getLstGeneralEstudiantes(e.getGrupo());
                             adaptadorEst.notifyDataSetChanged();
                             dialogo.dismiss();
                         } catch (Exception e) {

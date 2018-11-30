@@ -7,6 +7,8 @@ public class Estudiante {
     private String nombre;
     private int cedula;
     private String apellido;
+    private String genero;
+    private int grupo;
     private int edad;
     private String fechaDeNacimiento;
     private String fechaDeInscripcion;
@@ -16,7 +18,7 @@ public class Estudiante {
     private int faltas;
     private String pago;
 
-    public Estudiante(int id, int cedula,String nombre, String apellido, String celular, String telFijo, String email, String pago ) {
+    public Estudiante(int id, int cedula,String nombre, String apellido, String celular, String telFijo, String email, String pago) {
         this.id = id;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -25,9 +27,10 @@ public class Estudiante {
         this.telFijo = telFijo;
         this.email = email;
         this.pago = pago;
+        this.grupo = grupo;
     }
-
-    public Estudiante(int cedula,String nombre, String apellido, String celular, String telFijo, String email, String pago ) {
+    public Estudiante(int id, int cedula,String nombre, String apellido, String celular, String telFijo, String email, String pago,int grupo) {
+        this.id = id;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -35,12 +38,41 @@ public class Estudiante {
         this.telFijo = telFijo;
         this.email = email;
         this.pago = pago;
+        this.grupo = grupo;
+    }
+
+
+    public Estudiante(int cedula,String nombre, String apellido, String celular, String telFijo, String email, String pago, int grupo) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.celular = celular;
+        this.telFijo = telFijo;
+        this.email = email;
+        this.pago = pago;
+        this.grupo = grupo;
     }
 
 
 
 
     public Estudiante() {
+    }
+
+    public void setGrupo(int grupo) {
+        this.grupo = grupo;
+    }
+
+    public int getGrupo() {
+        return grupo;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public int getId() {
