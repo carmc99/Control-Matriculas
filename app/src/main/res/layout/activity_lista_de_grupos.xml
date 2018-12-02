@@ -13,6 +13,7 @@
         android:descendantFocusability="blocksDescendants" />
 
     <Button
+        android:focusable="false"
         android:id="@+id/btnAddGrupo"
         style="@style/BtnPrimary"
         android:layout_width="match_parent"

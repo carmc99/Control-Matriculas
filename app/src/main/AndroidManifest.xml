@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controller.ControllerGrupo"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".Controller.ControllerLstGeneralEst"/>
+        <activity android:name=".Controller.ControllerGrupo" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Controller.ControllerLstGeneralEst" />
 
     </application>
 

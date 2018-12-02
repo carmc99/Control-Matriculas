@@ -25,12 +25,14 @@ public class AdaptadorEstudiante extends BaseAdapter {
     daoEstudiante daoEst;
     Estudiante est;
     Activity activity;
+    int grupo;
     int id= 0; //referencia a cada fila
 
-    public AdaptadorEstudiante(Activity activity, ArrayList<Estudiante> lstEstudiantes, daoEstudiante daoEst) {
+    public AdaptadorEstudiante(Activity activity, ArrayList<Estudiante> lstEstudiantes, daoEstudiante daoEst,int grupo) {
         this.lstEstudiante = lstEstudiantes;
         this.activity = activity;
         this.daoEst = daoEst;
+        this.grupo = grupo;
     }
 
     public int getId() {
@@ -131,7 +133,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
 
                             );
                             daoEst.editar(est);
-                            lstEstudiante = daoEst.getLstEstudiantes();
+                            lstEstudiante = daoEst.getLstGeneralEstudiantes(grupo);
                             notifyDataSetChanged();
                             dialog.dismiss();
                         } catch (Exception e) {
@@ -196,7 +198,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 int pos = Integer.parseInt(v.getTag().toString());
                 est = lstEstudiante.get(pos);
                 AlertDialog.Builder confirma = new AlertDialog.Builder(activity);
-                confirma.setMessage("¿Estas seguro de querer eliminar este estudiante?");
+                confirma.setMessage("¿Esta seguro de querer eliminar este estudiante?");
                 confirma.setCancelable(false);
 
                 confirma.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -206,11 +208,11 @@ public class AdaptadorEstudiante extends BaseAdapter {
                     }
                 });
 
-                confirma.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                confirma.setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         daoEst.eliminar(est.getId());
-                        lstEstudiante = daoEst.getLstEstudiantes();
+                        lstEstudiante = daoEst.getLstGeneralEstudiantes(grupo);
                         notifyDataSetChanged();
                     }
                 });

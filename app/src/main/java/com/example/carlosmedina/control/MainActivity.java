@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             grupoId = intentExtras.getInt("grupoId");
         }
 
-        lstEstudiante = daoEst.getLstEstudiantes();
+        lstEstudiante = daoEst.getLstGeneralEstudiantes(grupoId);
 
 
         //Referencia a los elementos del activity
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         dialogo = new Dialog(this, android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);
         dialogo.setContentView(aux);
 
-        adaptadorEst = new AdaptadorEstudiante(this, lstEstudiante, daoEst);
+        adaptadorEst = new AdaptadorEstudiante(this, lstEstudiante, daoEst,grupoId);
         ListView listview = (ListView) findViewById(R.id.listview_general);
         listview.setAdapter(adaptadorEst);
 
@@ -91,10 +91,10 @@ public class MainActivity extends AppCompatActivity {
                                     pago.getText().toString(),
                                     grupoId
                             );
-                            e.setGrupo(grupoId);
+
                             daoEst.insertar(e);
                             //CORREGIR!!! NO MUESTRA LOS ESTUDIANTES FILTRADOS POR GRUPOS ->>>>
-                            lstEstudiante = daoEst.getLstGeneralEstudiantes(e.getGrupo());
+                            lstEstudiante = daoEst.getLstGeneralEstudiantes(grupoId);
                             adaptadorEst.notifyDataSetChanged();
                             dialogo.dismiss();
                         } catch (Exception e) {

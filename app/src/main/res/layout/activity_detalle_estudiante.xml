@@ -59,7 +59,7 @@
         <TableRow
             android:id="@+id/fila_2"
             android:layout_width="match_parent"
-            android:layout_height="159dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:orientation="vertical">
 
@@ -342,7 +342,6 @@
                     android:id="@+id/btnVolver"
                     style="@style/BtnPrimary"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:text="Volver" />
             </LinearLayout>
         </TableRow>

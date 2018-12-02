@@ -34,10 +34,14 @@ public class daoGrupo {
         return (db.insert("GRUPO", null, contenedor))>0;
     }
     public boolean editar(Grupo g){
-        return true;
+        ContentValues contenedor = new ContentValues();
+        contenedor.put("NOMBRE", g.getNombre());
+        contenedor.put("DESCRIPCION", g.getDescripcion());
+
+        return (db.update("GRUPO", contenedor, "ID=" + g.getId(),null))>0;
     }
-    public boolean eliminar(Grupo g){
-        return true;
+    public boolean eliminar(int id){
+        return db.delete("GRUPO","ID="+ id,null)>0;
     }
     public ArrayList<Grupo> getLstGrupos(){
         lstGrupos.clear();

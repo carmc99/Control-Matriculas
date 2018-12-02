@@ -63,7 +63,6 @@ public class daoEstudiante{
         contenedor.put("celular", e.getCelular());
         contenedor.put("telFijo", e.getTelFijo());
         contenedor.put("email", e.getEmail());
-        contenedor.put("grupo", e.getGrupo());
 
         return (db.update("estudiante", contenedor, "ID=" + e.getId(),null))>0;
     }
