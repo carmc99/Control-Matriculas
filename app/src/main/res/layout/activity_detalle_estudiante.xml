@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/contenedor"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <TableLayout
-        android:id="@+id/tabla"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TableRow
-            android:id="@+id/fila_1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:drawable/dialog_holo_light_frame">
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/estudiante_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@android:drawable/dialog_holo_light_frame">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:padding="16dp">
 
                     <ImageView
@@ -46,23 +45,21 @@
 
                     <TextView
                         android:id="@+id/data_cedula"
-                        android:layout_width="wrap_content"
+                        android:layout_width="189dp"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/titulo_inicio"
-                        android:layout_toRightOf="@+id/foto_estudiante" />
+                        android:layout_alignStart="@+id/titulo_inicio"
+                        android:layout_centerVertical="true" />
 
                 </RelativeLayout>
-
-            </android.support.v7.widget.CardView>
+            </LinearLayout>
         </TableRow>
 
         <TableRow
-            android:id="@+id/fila_2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
+            android:layout_height="298dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="167dp">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -70,53 +67,27 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
 
                     <LinearLayout
-                        android:id="@+id/pago_group"
+                        android:id="@+id/faltas_group"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="8dp">
 
                         <TextView
-                            android:id="@+id/lb_pago"
+                            android:id="@+id/lb_faltas"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
                             android:layout_weight="1"
                             android:gravity="left"
-                            android:text="Pago al día:" />
+                            android:text="Faltas acumuladas: " />
 
                         <TextView
-                            android:id="@+id/data_pago"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignTop="@+id/lb_genero"
-                            android:layout_gravity="right"
-                            android:layout_weight="1"
-                            android:gravity="right" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/genero"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/lb_genero"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:text="Genero:" />
-
-                        <TextView
-                            android:id="@+id/data_genero"
+                            android:id="@+id/data_faltas"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -124,146 +95,7 @@
                             android:layout_gravity="right"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:text="Masculino" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/edad_group"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/lb_genero1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:text="Fecha de nacimiento: " />
-
-                        <TextView
-                            android:id="@+id/data_edad"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignTop="@+id/lb_genero"
-                            android:layout_gravity="right"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="08/12/1994 " />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/celular_group"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/lb_celular"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:text="Celular:" />
-
-                        <TextView
-                            android:id="@+id/data_celular"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignTop="@+id/lb_genero"
-                            android:layout_gravity="right"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="310239434" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/categoria_group"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/lb_categoria"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:text="Categoria:" />
-
-                        <TextView
-                            android:id="@+id/data_categoria"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignTop="@+id/lb_genero"
-                            android:layout_gravity="right"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="Mixta" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/tel_fijo_group"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/lb_tel_fijo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:text="Fijo: " />
-
-                        <TextView
-                            android:id="@+id/data_tel_fijo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignTop="@+id/lb_genero"
-                            android:layout_gravity="right"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="12343455" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/email__group"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/lb_email"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:text="Email:" />
-
-                        <TextView
-                            android:id="@+id/data_email"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignTop="@+id/lb_genero"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:paddingLeft="50dp"
-                            android:text="carmc99@gmail.com" />
+                            android:text="12" />
 
                     </LinearLayout>
 
@@ -271,7 +103,8 @@
                         android:id="@+id/acudiente_group"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="8dp">
 
                         <TextView
                             android:id="@+id/lb_acudiente"
@@ -296,22 +129,51 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/faltas_group"
+                        android:id="@+id/email__group"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:padding="8dp">
 
                         <TextView
-                            android:id="@+id/lb_faltas"
+                            android:id="@+id/lb_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Email:" />
+
+                        <TextView
+                            android:id="@+id/data_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_genero"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:paddingLeft="50dp"
+                            android:text="carmc99@gmail.com" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tel_fijo_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_tel_fijo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
                             android:layout_weight="1"
                             android:gravity="left"
-                            android:text="Faltas acumuladas: " />
+                            android:text="Fijo: " />
 
                         <TextView
-                            android:id="@+id/data_faltas"
+                            android:id="@+id/data_tel_fijo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -319,8 +181,149 @@
                             android:layout_gravity="right"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:text="12" />
+                            android:text="12343455" />
 
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/categoria_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_categoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Categoria:" />
+
+                        <TextView
+                            android:id="@+id/data_categoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_genero"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Mixta" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/celular_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_celular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Celular:" />
+
+                        <TextView
+                            android:id="@+id/data_celular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_genero"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="310239434" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/edad_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_genero1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Fecha de nacimiento: " />
+
+                        <TextView
+                            android:id="@+id/data_edad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_genero"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="08/12/1994 " />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/genero"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_genero"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Genero:" />
+
+                        <TextView
+                            android:id="@+id/data_genero"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_genero"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Masculino" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/pago_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_pago"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+
+                            android:text="gggg" />
+
+                        <TextView
+                            android:id="@+id/data_pago"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="dfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfg" />
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
@@ -328,24 +331,31 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/fila_3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="80dp"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnVolver"
                     style="@style/BtnPrimary"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Volver" />
             </LinearLayout>
         </TableRow>
 
-    </TableLayout>
-
+    </RelativeLayout>
 </LinearLayout>

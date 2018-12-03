@@ -116,6 +116,7 @@ public class AdaptadorGrupo extends BaseAdapter {
                             lstGrupos = daoGroup.getLstGrupos();
                             notifyDataSetChanged();
                             dialog.dismiss();
+                            Toast.makeText(activity, "Registro actualizado", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             Toast.makeText(activity, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -159,6 +160,7 @@ public class AdaptadorGrupo extends BaseAdapter {
                         daoGroup.eliminar(g.getId());
                         lstGrupos = daoGroup.getLstGrupos();
                         notifyDataSetChanged();
+                        Toast.makeText(activity, "Registro eliminado", Toast.LENGTH_SHORT).show();
                     }
                 });
 

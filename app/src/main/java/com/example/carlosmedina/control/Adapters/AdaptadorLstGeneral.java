@@ -61,11 +61,9 @@ public class AdaptadorLstGeneral extends BaseAdapter {
             v = li.inflate(R.layout.listview_row_general, null);
         }
         est = lstEstudiante.get(position);
-        Button btnVer = (Button) v.findViewById(R.id.ver);
         TextView columna1 = (TextView) v.findViewById(R.id.nombre);
         TextView columna3 = (TextView) v.findViewById(R.id.grupo);
         //Referencia a la numero de el boton en la lista.
-        btnVer.setTag(position);
         //Rellenamos los valores de cada columna de la fila
         columna1.setText(est.getNombre() + " " + est.getApellido());
         //columna2.setText(est.getApellido());

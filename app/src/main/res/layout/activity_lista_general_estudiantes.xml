@@ -97,6 +97,7 @@
 
     <ListView
         android:id="@+id/listview_general"
+        android:descendantFocusability="blocksDescendants"
         android:layout_width="match_parent"
         android:layout_height="277dp"
         android:layout_centerInParent="true"

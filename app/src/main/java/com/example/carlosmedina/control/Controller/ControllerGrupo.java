@@ -1,5 +1,6 @@
 package com.example.carlosmedina.control.Controller;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class ControllerGrupo extends AppCompatActivity {
     AdaptadorGrupo adaptadorGrupo;
     ArrayList<Grupo> lstGrupos;
     Grupo g;
+    Activity activity;
 
 
     @Override
@@ -36,6 +38,7 @@ public class ControllerGrupo extends AppCompatActivity {
         setContentView(R.layout.activity_lista_de_grupos);
         daoGroup = new daoGrupo(this);
         lstGrupos = daoGroup.getLstGrupos();
+        activity = this;
 
         Button añadirGrupo = (Button) findViewById(R.id.btnAddGrupo);
 
@@ -85,6 +88,7 @@ public class ControllerGrupo extends AppCompatActivity {
                             adaptadorGrupo.notifyDataSetChanged();
 
                             dialogo.dismiss();
+                            Toast.makeText(activity, "Registro exitoso", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             Toast.makeText(getApplication(), "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }

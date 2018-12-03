@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Control</string>
+    <string name="app_name">Dragones</string>
     <string name="titulo_seccion">Titulo de la seccion</string>
     <string name="version_app">Version 1.0</string>
-    <string name="autor">Carlos Medina</string>
+    <string name="autor">Estudiantes UdeA: Carlos Medina, Josue Cano,Karol Alzate,Angie Vargas</string>
     <string name="listado_grupos">Listado de grupos:</string>
     <string name="listado_estudiantes">Listado de estudiantes:</string>
 

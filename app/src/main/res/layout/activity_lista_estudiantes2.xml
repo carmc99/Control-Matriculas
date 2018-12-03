@@ -53,7 +53,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_column="0"
                 android:padding="3dip"
-                android:text="Pago"
+                android:text="Al día"
                 android:textAlignment="center"
                 android:textColor="@android:color/white" />
 
@@ -63,7 +63,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_column="0"
-                android:layout_marginEnd="70dp"
+                android:layout_marginEnd="105dp"
                 android:padding="3dip"
                 android:text="Nombre"
                 android:textAlignment="center"
@@ -104,5 +104,6 @@
         android:dividerHeight="1dp"
         android:padding="2dp"
         android:paddingEnd="5dp"
+        android:descendantFocusability="blocksDescendants"
         />
 </RelativeLayout>

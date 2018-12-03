@@ -19,6 +19,7 @@
         <activity android:name=".Controller.ControllerGrupo" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Controller.ControllerLstGeneralEst" />
+        <activity android:name=".Controller.ControllerDetalleEst" />
 
     </application>
 
