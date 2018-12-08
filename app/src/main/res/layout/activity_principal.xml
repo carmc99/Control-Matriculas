@@ -10,17 +10,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="135dp"
+        android:layout_marginBottom="120dp"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnInforme"
+            android:id="@+id/btnSincronizar"
             style="@style/BtnPrimary"
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_weight="1"
-            android:text="Generar informe" />
+            android:text="Sincronizar datos" />
     </LinearLayout>
 
     <LinearLayout
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="63dp"
         android:orientation="horizontal">
 
         <Button
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="2dp"
         android:orientation="horizontal">
 
         <Button
@@ -62,23 +62,49 @@
     <TableRow
         android:id="@+id/fila_2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="120dp">
+        android:layout_height="270dp"
+        android:layout_marginTop="90dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="268dp"
             android:padding="16dp">
 
-            <TextView
-                android:id="@+id/mensaje"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textSize="20dp" />
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/titulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="1dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/mensaje"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="15dp"
+                        android:gravity="left"
+                        android:textAlignment="center"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+            </ScrollView>
 
         </RelativeLayout>
 

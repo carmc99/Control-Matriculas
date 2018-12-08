@@ -34,7 +34,8 @@
                 android:padding="5dp"
                 android:text=""
                 android:textAlignment="center"
-                android:textAllCaps="true" />
+                android:textAllCaps="true"
+                android:maxLength="20"/>
 
         </LinearLayout>
 

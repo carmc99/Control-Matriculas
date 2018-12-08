@@ -9,17 +9,17 @@
     <ListView
         android:id="@+id/list_view"
         android:layout_width="fill_parent"
-        android:layout_height="455dp"
+        android:layout_height="465dp"
         android:descendantFocusability="blocksDescendants" />
 
     <Button
-        android:focusable="false"
         android:id="@+id/btnAddGrupo"
         style="@style/BtnPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:focusable="false"
         android:text="@string/añadirGrupo"
         tools:layout_editor_absoluteX="12dp"
         tools:layout_editor_absoluteY="495dp" />

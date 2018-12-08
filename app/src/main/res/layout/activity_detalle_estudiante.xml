@@ -40,15 +40,17 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_toRightOf="@+id/foto_estudiante"
-                        android:text="Carlos Medina"
-                        android:textSize="30sp" />
+                        android:text=""
+                        android:textSize="30sp"
+                        android:maxLength="10"/>
 
                     <TextView
                         android:id="@+id/data_cedula"
                         android:layout_width="189dp"
                         android:layout_height="wrap_content"
                         android:layout_alignStart="@+id/titulo_inicio"
-                        android:layout_centerVertical="true" />
+                        android:layout_centerVertical="true"
+                        android:maxLength="20"/>
 
                 </RelativeLayout>
             </LinearLayout>

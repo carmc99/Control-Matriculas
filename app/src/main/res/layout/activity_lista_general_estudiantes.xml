@@ -39,7 +39,7 @@
         android:layout_height="25dp"
         android:layout_above="@+id/listview_general"
         android:layout_alignParentStart="true"
-        android:background="#128675">
+        android:background="@color/colorPrimary">
 
         <RelativeLayout
             android:layout_width="match_parent"

@@ -30,12 +30,13 @@
                 android:layout_weight="1"
                 android:text=""
                 android:textAlignment="center"
-                android:textAllCaps="true" />
+                android:textAllCaps="true"
+                android:maxLength="20"/>
 
             <Button
                 android:id="@+id/editar1"
                 android:layout_width="1dp"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_marginRight="2dp"
                 android:layout_weight="0.5"
                 android:background="@drawable/ic_edit_yellow_24dp" />
@@ -43,10 +44,9 @@
             <Button
                 android:id="@+id/elim1"
                 android:layout_width="1dp"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_weight="0.5"
-                android:background="@drawable/ic_delete_red_24dp"
-           />
+                android:background="@drawable/ic_delete_red_24dp" />
 
         </LinearLayout>
 

@@ -28,14 +28,16 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="15dp"
-            android:hint="Nombres" />
+            android:hint="Nombres"
+            android:maxLength="60" />
 
         <EditText
             android:id="@+id/apellidos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="Apellidos" />
+            android:hint="Apellidos"
+            android:maxLength="60" />
 
 
         <EditText
@@ -44,8 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:hint="Cedula"
-            android:maxLength="12"
-            android:inputType="phone"/>
+            android:inputType="phone"
+            android:maxLength="15" />
 
         <RadioGroup
             android:id="@+id/gender"
@@ -84,7 +86,8 @@
             android:layout_margin="15dp"
             android:drawableLeft="@drawable/ic_phone_iphone_black_30dp"
             android:ems="10"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:maxLength="15"/>
 
 
         <EditText
@@ -94,7 +97,8 @@
             android:layout_margin="15dp"
             android:drawableLeft="@drawable/ic_phone_black_30dp"
             android:ems="10"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:maxLength="15"/>
 
         <EditText
             android:id="@+id/email"
@@ -103,14 +107,16 @@
             android:layout_margin="15dp"
             android:drawableLeft="@drawable/ic_email_black_30dp"
             android:ems="10"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:maxLength="60"/>
 
         <EditText
             android:id="@+id/acudiente"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="15dp"
-            android:hint="Acudiente" />
+            android:hint="Acudiente"
+            android:maxLength="50"/>
 
         <TextView
             android:id="@+id/lb_info_contacto3"
@@ -129,6 +135,12 @@
             android:ems="10"
             android:inputType="text"
             android:hint="Pago si/no" />
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Switch" />
 
         <LinearLayout
             android:layout_width="match_parent"

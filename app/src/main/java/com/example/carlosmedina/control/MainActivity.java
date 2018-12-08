@@ -10,8 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.carlosmedina.control.Adapters.AdaptadorEstudiante;
+import com.example.carlosmedina.control.Adapters.AdaptadorFireBase;
 import com.example.carlosmedina.control.DataBase.daoEstudiante;
 import com.example.carlosmedina.control.Model.Estudiante;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     Estudiante e;
     int grupoId;
     Activity activity;
+    Tool f;
+
 
 
     @Override
@@ -41,10 +46,9 @@ public class MainActivity extends AppCompatActivity {
         daoEst = new daoEstudiante(this);
         Bundle intentExtras = getIntent().getExtras();
         if (intentExtras != null) {
-            grupoId = intentExtras.getInt("grupoId");
+            grupoId = intentExtras.getInt("grupoId"); //Obtiene los datos enviados desde la vista de grupos
         }
         activity =this;
-
         lstEstudiante = daoEst.getLstGeneralEstudiantes(grupoId);
 
 
@@ -112,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Abrir formulario para crear estudiante
                 dialogo.show();
+                String[] lista = new String[3];
                 final EditText cedula = (EditText) dialogo.findViewById(R.id.cedula);
                 final EditText nombre = (EditText) dialogo.findViewById(R.id.nombres);
                 final EditText apellidos = (EditText) dialogo.findViewById(R.id.apellidos);
@@ -125,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // Crear un nuevo estudiante
+
                         try {
 
                             e = new Estudiante(
@@ -139,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
                             );
 
                             daoEst.insertar(e);
-                            //CORREGIR!!! NO MUESTRA LOS ESTUDIANTES FILTRADOS POR GRUPOS ->>>>
                             lstEstudiante = daoEst.getLstGeneralEstudiantes(grupoId);
                             adaptadorEst.notifyDataSetChanged();
                             dialogo.dismiss();
@@ -159,6 +164,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 }
 

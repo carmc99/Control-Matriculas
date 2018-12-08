@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "779979007939",
+    "firebase_url": "https://matriculas-b9e76.firebaseio.com",
+    "project_id": "matriculas-b9e76",
+    "storage_bucket": "matriculas-b9e76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779979007939:android:0fad57951ec4b3f7",
+        "android_client_info": {
+          "package_name": "com.example.carlosmedina.control"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779979007939-6t3sc1tajti1qlqb4piqf6umqsbkt5sp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSg75xnyUPFycizrA57fLoGYVmU2gTk6A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

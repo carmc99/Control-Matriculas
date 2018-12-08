@@ -28,14 +28,17 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="15dp"
-            android:hint="Nombre" />
+            android:accessibilityHeading="false"
+            android:hint="Nombre"
+            android:maxLength="35" />
 
         <EditText
             android:id="@+id/data_descripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="Descripcion" />
+            android:hint="Descripcion"
+            android:maxLength="200" />
 
 
         <LinearLayout
