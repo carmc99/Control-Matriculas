@@ -28,7 +28,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.0.5' //Error "com.google.android.gms:play-services-measurement-base is being requested by various other libraries",
     // Solución: actualizar a la version mas reciente de la dependencia
     implementation 'com.google.firebase:firebase-storage:16.0.5'
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.5'
 
 }
 com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
