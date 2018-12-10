@@ -245,8 +245,8 @@
                             android:layout_alignParentEnd="true"
                             android:layout_alignTop="@+id/lb_genero"
                             android:layout_weight="1"
-                            android:gravity="left"
-                            android:paddingLeft="50dp"
+                            android:layout_gravity="right"
+                            android:gravity="right"
                             android:textSize="17sp" />
 
                     </LinearLayout>

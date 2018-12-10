@@ -57,23 +57,41 @@ public class ControllerLstGeneralEst extends AppCompatActivity {
                 Button btnVolver = (Button) dialog.findViewById(R.id.btnVolver);
                 try {
                     final TextView cedula = (TextView) dialog.findViewById(R.id.data_cedula);
+                    final TextView fechaIncripcion = (TextView) dialog.findViewById(R.id.data_fechaInscripcion);
                     final TextView nombre = (TextView) dialog.findViewById(R.id.titulo_inicio);
                     final TextView acudiente = (TextView) dialog.findViewById(R.id.data_acudiente);
                     final TextView celular = (TextView) dialog.findViewById(R.id.data_celular);
                     final TextView fijo = (TextView) dialog.findViewById(R.id.data_tel_fijo);
                     final TextView email = (TextView) dialog.findViewById(R.id.data_email);
-
                     final TextView pago = (TextView) dialog.findViewById(R.id.data_pago);
-
+                    final TextView categoria = (TextView) dialog.findViewById(R.id.data_categoria);
+                    final TextView genero = (TextView) dialog.findViewById(R.id.data_genero);
+                    final TextView fechaNacimiento = (TextView) dialog.findViewById(R.id.data_edad);
+                    final TextView telAcudiente = (TextView) dialog.findViewById(R.id.data_tel_acudiente);
+                    final TextView numFaltas = (TextView) dialog.findViewById(R.id.data_faltas);
+                    final TextView fechaVencimientoPago = (TextView) dialog.findViewById(R.id.data_vencimiento);
+                    final TextView fechaUltimoPago = (TextView) dialog.findViewById(R.id.data_ultimo_pago);
+                    final TextView nombre1 = (TextView) dialog.findViewById(R.id.data_nombre1);
+                    final TextView apellido1= (TextView) dialog.findViewById(R.id.data_apellido1);
 
                     e = lstEstudiante.get(position);
+                    nombre1.setText(e.getNombre());
+                    apellido1.setText(e.getApellido());
+                    fechaIncripcion.setText("Inscripción: " + e.getFechaDeInscripcion());
                     nombre.setText(e.getNombre());
                     cedula.setText((Integer.toString(e.getCedula())));
-                    //acudiente.setText(e.ge);
+                    acudiente.setText(e.getNombreAcudiente());
                     celular.setText(e.getCelular());
                     fijo.setText(e.getTelFijo());
                     email.setText(e.getEmail());
                     pago.setText(e.getPago());
+                    genero.setText(e.getGenero());
+                    categoria.setText(e.getCategoria());
+                    telAcudiente.setText(e.getTelAcudiente());
+                    fechaNacimiento.setText(e.getFechaDeNacimiento());
+                    numFaltas.setText((Integer.toString(e.getFaltas())));
+                    fechaVencimientoPago.setText(e.getFechaVencimientoPago());
+                    fechaUltimoPago.setText(e.getFechaUltimoPago());
                 }catch (Exception e){
                     Toast.makeText(activity, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
