@@ -17,8 +17,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:background="@android:drawable/dialog_holo_light_frame">
+                android:background="@android:drawable/dialog_holo_light_frame"
+                android:orientation="horizontal">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -27,8 +27,8 @@
 
                     <ImageView
                         android:id="@+id/foto_estudiante"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginRight="16dp"
@@ -36,21 +36,30 @@
 
                     <TextView
                         android:id="@+id/titulo_inicio"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_toRightOf="@+id/foto_estudiante"
+                        android:maxLength="12"
                         android:text=""
-                        android:textSize="30sp"
-                        android:maxLength="10"/>
+                        android:textSize="23sp" />
 
                     <TextView
                         android:id="@+id/data_cedula"
-                        android:layout_width="189dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
                         android:layout_alignStart="@+id/titulo_inicio"
                         android:layout_centerVertical="true"
-                        android:maxLength="20"/>
+                        android:maxLength="20"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/data_fechaInscripcion"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/titulo_inicio"
+                        android:layout_below="@+id/data_cedula"
+                        android:textSize="14sp" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -58,10 +67,11 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="298dp"
+            android:layout_height="340dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="167dp">
+            android:layout_marginTop="140dp"
+            android:padding="6dp">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -70,178 +80,79 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/faltas_group"
+                        android:id="@+id/seccion"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:padding="8dp">
 
                         <TextView
-                            android:id="@+id/lb_faltas"
+                            android:id="@+id/lb_seccion1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Información personal:"
+                            android:textSize="18dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/nombre_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_nombre"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
                             android:layout_weight="1"
                             android:gravity="left"
-                            android:text="Faltas acumuladas: " />
+                            android:text="Nombres:" />
 
                         <TextView
-                            android:id="@+id/data_faltas"
+                            android:id="@+id/data_nombre1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_alignTop="@+id/lb_genero"
                             android:layout_gravity="right"
                             android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="12" />
+                            android:gravity="right" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/acudiente_group"
+                        android:id="@+id/edad_group1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:padding="8dp">
 
                         <TextView
-                            android:id="@+id/lb_acudiente"
+                            android:id="@+id/lb_apellidos"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
                             android:layout_weight="1"
                             android:gravity="left"
-                            android:text="Acudiente" />
+                            android:text="Apellidos:" />
 
                         <TextView
-                            android:id="@+id/data_acudiente"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignTop="@+id/lb_categoria"
-                            android:layout_gravity="right"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="Vannesa Marin" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/email__group"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:id="@+id/lb_email"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:text="Email:" />
-
-                        <TextView
-                            android:id="@+id/data_email"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignTop="@+id/lb_genero"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:paddingLeft="50dp"
-                            android:text="carmc99@gmail.com" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/tel_fijo_group"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:id="@+id/lb_tel_fijo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:text="Fijo: " />
-
-                        <TextView
-                            android:id="@+id/data_tel_fijo"
+                            android:id="@+id/data_apellido1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_alignTop="@+id/lb_genero"
                             android:layout_gravity="right"
                             android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="12343455" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/categoria_group"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:id="@+id/lb_categoria"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:text="Categoria:" />
-
-                        <TextView
-                            android:id="@+id/data_categoria"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignTop="@+id/lb_genero"
-                            android:layout_gravity="right"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="Mixta" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/celular_group"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:padding="8dp">
-
-                        <TextView
-                            android:id="@+id/lb_celular"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:layout_weight="1"
-                            android:gravity="left"
-                            android:text="Celular:" />
-
-                        <TextView
-                            android:id="@+id/data_celular"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignTop="@+id/lb_genero"
-                            android:layout_gravity="right"
-                            android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="310239434" />
+                            android:gravity="right" />
 
                     </LinearLayout>
 
@@ -269,8 +180,7 @@
                             android:layout_alignTop="@+id/lb_genero"
                             android:layout_gravity="right"
                             android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="08/12/1994 " />
+                            android:gravity="right" />
 
                     </LinearLayout>
 
@@ -298,8 +208,238 @@
                             android:layout_alignTop="@+id/lb_genero"
                             android:layout_gravity="right"
                             android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="Masculino" />
+                            android:gravity="right" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/email__group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Email:" />
+
+                        <TextView
+                            android:id="@+id/data_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_genero"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:paddingLeft="50dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tel_fijo_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_tel_fijo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Fijo: " />
+
+                        <TextView
+                            android:id="@+id/data_tel_fijo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_genero"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:gravity="right" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/celular_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_celular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Celular:" />
+
+                        <TextView
+                            android:id="@+id/data_celular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_genero"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:gravity="right" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/categoria_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_categoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Categoria:" />
+
+                        <TextView
+                            android:id="@+id/data_categoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_genero"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:gravity="right" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/faltas_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_faltas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Faltas acumuladas: " />
+
+                        <TextView
+                            android:id="@+id/data_faltas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_genero"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:gravity="right" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/seccion3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_seccion5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Información acudiente:"
+                            android:textSize="18dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/acudiente_group1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_acudiente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Acudiente" />
+
+                        <TextView
+                            android:id="@+id/data_acudiente"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_categoria"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:gravity="right" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/acudiente_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_tel_acudiente"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:text="Telefono:" />
+
+                        <TextView
+                            android:id="@+id/data_tel_acudiente"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@+id/lb_categoria"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:gravity="right" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/seccion2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_seccion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Información contable:"
+                            android:textSize="18dp" />
 
                     </LinearLayout>
 
@@ -307,6 +447,7 @@
                         android:id="@+id/pago_group"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:orientation="horizontal"
                         android:padding="8dp">
 
@@ -317,15 +458,64 @@
 
                             android:layout_weight="1"
 
-                            android:text="gggg" />
+                            android:text="Valor:" />
 
                         <TextView
                             android:id="@+id/data_pago"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:gravity="right"
-                            android:text="dfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfg" />
+                            android:gravity="right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ultimo_pago_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_ultimo_pago"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+
+                            android:text="Fecha de pago:" />
+
+                        <TextView
+                            android:id="@+id/data_ultimo_pago"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vencimiento_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/lb_vencimiento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+
+                            android:text="Fecha vencimiento:" />
+
+                        <TextView
+                            android:id="@+id/data_vencimiento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right" />
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>

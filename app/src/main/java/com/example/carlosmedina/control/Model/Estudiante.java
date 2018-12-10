@@ -4,21 +4,26 @@ import java.util.Date;
 
 public class Estudiante {
     private int id;
-    private String nombre;
     private int cedula;
+    private String nombre;
     private String apellido;
-    private String genero;
-    private int grupo;
-    private int edad;
-    private String fechaDeNacimiento;
-    private String fechaDeInscripcion;
     private String celular;
     private String telFijo;
     private String email;
-    private int faltas;
+    private String genero;
     private String pago;
+    private int grupo;
+    private String categoria;
+    private String fechaDeNacimiento;
+    private String nombreAcudiente;
+    private String telAcudiente;
+    private String fechaDeInscripcion;
+    private String fechaUltimoPago;
+    private String fechaVencimientoPago;
+    private int faltas;
 
-    public Estudiante(int id, int cedula,String nombre, String apellido, String celular, String telFijo, String email, String pago) {
+
+    public Estudiante(int id, int cedula, String nombre, String apellido, String celular, String telFijo, String email, String genero, String pago, int grupo, String categoria, String fechaDeNacimiento, String nombreAcudiente, String telAcudiente, String fechaDeInscripcion, String fechaUltimoPago, String fechaVencimientoPago, int faltas) {
         this.id = id;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -26,53 +31,71 @@ public class Estudiante {
         this.celular = celular;
         this.telFijo = telFijo;
         this.email = email;
-        this.pago = pago;
-        this.grupo = grupo;
-    }
-    public Estudiante(int id, int cedula,String nombre, String apellido, String celular, String telFijo, String email, String pago,int grupo) {
-        this.id = id;
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.celular = celular;
-        this.telFijo = telFijo;
-        this.email = email;
-        this.pago = pago;
-        this.grupo = grupo;
-    }
-
-
-    public Estudiante(int cedula,String nombre, String apellido, String celular, String telFijo, String email, String pago, int grupo) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.celular = celular;
-        this.telFijo = telFijo;
-        this.email = email;
-        this.pago = pago;
-        this.grupo = grupo;
-    }
-
-
-
-
-    public Estudiante() {
-    }
-
-    public void setGrupo(int grupo) {
-        this.grupo = grupo;
-    }
-
-    public int getGrupo() {
-        return grupo;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
         this.genero = genero;
+        this.pago = pago;
+        this.grupo = grupo;
+        this.categoria = categoria;
+        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.nombreAcudiente = nombreAcudiente;
+        this.telAcudiente = telAcudiente;
+        this.fechaDeInscripcion = fechaDeInscripcion;
+        this.fechaUltimoPago = fechaUltimoPago;
+        this.fechaVencimientoPago = fechaVencimientoPago;
+        this.faltas = faltas;
+    }
+
+    public Estudiante(int id, int cedula, String nombre, String apellido, String celular, String telFijo, String email, String pago, String categoria, String fechaDeNacimiento, String nombreAcudiente, String telAcudiente, String fechaUltimoPago, String fechaVencimientoPago, int faltas) {
+        this.id = id;
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.celular = celular;
+        this.telFijo = telFijo;
+        this.email = email;
+        this.pago = pago;
+        this.categoria = categoria;
+        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.nombreAcudiente = nombreAcudiente;
+        this.telAcudiente = telAcudiente;
+        this.fechaUltimoPago = fechaUltimoPago;
+        this.fechaVencimientoPago = fechaVencimientoPago;
+        this.faltas = faltas;
+    }
+
+    public Estudiante(int cedula, String nombre, String apellido, String celular, String telFijo, String email, String genero, String pago, int grupo, String categoria, String fechaDeNacimiento, String nombreAcudiente, String telAcudiente, String fechaDeInscripcion, String fechaUltimoPago, String fechaVencimientoPago, int faltas) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.celular = celular;
+        this.telFijo = telFijo;
+        this.email = email;
+        this.genero = genero;
+        this.pago = pago;
+        this.grupo = grupo;
+        this.categoria = categoria;
+        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.nombreAcudiente = nombreAcudiente;
+        this.telAcudiente = telAcudiente;
+        this.fechaDeInscripcion = fechaDeInscripcion;
+        this.fechaUltimoPago = fechaUltimoPago;
+        this.fechaVencimientoPago = fechaVencimientoPago;
+        this.faltas = faltas;
+    }
+
+    public String getNombreAcudiente() {
+        return nombreAcudiente;
+    }
+
+    public void setNombreAcudiente(String nombreAcudiente) {
+        this.nombreAcudiente = nombreAcudiente;
+    }
+
+    public String getTelAcudiente() {
+        return telAcudiente;
+    }
+
+    public void setTelAcudiente(String telAcudiente) {
+        this.telAcudiente = telAcudiente;
     }
 
     public int getId() {
@@ -81,22 +104,6 @@ public class Estudiante {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getFaltas() {
-        return faltas;
-    }
-
-    public void setFaltas(int faltas) {
-        this.faltas = faltas;
-    }
-
-    public String getPago() {
-        return pago;
-    }
-
-    public void setPago(String pago) {
-        this.pago = pago;
     }
 
     public String getNombre() {
@@ -123,12 +130,20 @@ public class Estudiante {
         this.apellido = apellido;
     }
 
-    public int getEdad() {
-        return edad;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public int getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(int grupo) {
+        this.grupo = grupo;
     }
 
     public String getFechaDeNacimiento() {
@@ -137,14 +152,6 @@ public class Estudiante {
 
     public void setFechaDeNacimiento(String fechaDeNacimiento) {
         this.fechaDeNacimiento = fechaDeNacimiento;
-    }
-
-    public String getFechaDeInscripcion() {
-        return fechaDeInscripcion;
-    }
-
-    public void setFechaDeInscripcion(String fechaDeInscripcion) {
-        this.fechaDeInscripcion = fechaDeInscripcion;
     }
 
     public String getCelular() {
@@ -170,9 +177,55 @@ public class Estudiante {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public int getFaltas() {
+        return faltas;
+    }
+
+    public void setFaltas(int faltas) {
+        this.faltas = faltas;
+    }
+
+    public String getPago() {
+        return pago;
+    }
+
+    public void setPago(String pago) {
+        this.pago = pago;
+    }
+
+    public String getFechaDeInscripcion() {
+        return fechaDeInscripcion;
+    }
+
+    public void setFechaDeInscripcion(String fechaDeInscripcion) {
+        this.fechaDeInscripcion = fechaDeInscripcion;
+    }
+
+    public String getFechaUltimoPago() {
+        return fechaUltimoPago;
+    }
+
+    public void setFechaUltimoPago(String fechaUltimoPago) {
+        this.fechaUltimoPago = fechaUltimoPago;
+    }
+
+    public String getFechaVencimientoPago() {
+        return fechaVencimientoPago;
+    }
+
+    public void setFechaVencimientoPago(String fechaVencimientoPago) {
+        this.fechaVencimientoPago = fechaVencimientoPago;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 }
-
-
 
 
 

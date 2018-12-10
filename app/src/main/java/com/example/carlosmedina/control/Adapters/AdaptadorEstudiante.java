@@ -71,19 +71,14 @@ public class AdaptadorEstudiante extends BaseAdapter {
         Button btnEditar = (Button) v.findViewById(R.id.editar1);
         Button btnEliminar = (Button) v.findViewById(R.id.elim1);
         TextView columna1 = (TextView) v.findViewById(R.id.nombre);
-
         TextView columna3 = (TextView) v.findViewById(R.id.pago);
-
-
         //Referencia a la numero de el boton en la lista.
         btnEditar.setTag(position);
         btnEliminar.setTag(position);
-
         //Rellenamos los valores de cada columna de la fila
         columna1.setText(est.getNombre() + " " + est.getApellido());
         //columna2.setText(est.getApellido());
         columna3.setText(est.getPago());
-
         //Boton editar
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +97,15 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 final EditText fijo = (EditText) dialog.findViewById(R.id.fijo);
                 final EditText email = (EditText) dialog.findViewById(R.id.email);
                 final EditText pago = (EditText) dialog.findViewById(R.id.pago);
+                final EditText nombreAcudiente = (EditText) dialog.findViewById(R.id.acudiente);
+                final EditText telAcudiente = (EditText) dialog.findViewById(R.id.celular_acudiente);
+                final String categoria ="Mixta";
+                final String fechaNacimiento ="01/2";
+                final String genero = "Masculino";
+                final int numFaltas = 1;
+                final String fechaUltimoPago ="2";
+                final String fechaVencimientoPago ="1";
+
                 Button btnGuardar = (Button) dialog.findViewById(R.id.btnCrearEstudiante);
                 Button btnCancelar = (Button) dialog.findViewById(R.id.btnCancelar);
                 est = lstEstudiante.get(pos);
@@ -113,6 +117,10 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 celular.setText(est.getCelular());
                 fijo.setText(est.getTelFijo());
                 pago.setText(est.getPago());
+                email.setText(est.getEmail());
+                nombreAcudiente.setText(est.getNombreAcudiente());
+                telAcudiente.setText(est.getTelAcudiente());
+
 
                 btnGuardar.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -127,8 +135,14 @@ public class AdaptadorEstudiante extends BaseAdapter {
                                     celular.getText().toString(),
                                     fijo.getText().toString(),
                                     email.getText().toString(),
-                                    pago.getText().toString()
-
+                                    pago.getText().toString(),
+                                    categoria,
+                                    fechaNacimiento,
+                                    nombreAcudiente.getText().toString(),
+                                    telAcudiente.getText().toString(),
+                                    fechaUltimoPago,
+                                    fechaVencimientoPago,
+                                    numFaltas
                             );
                             daoEst.editar(est);
                             lstEstudiante = daoEst.getLstGeneralEstudiantes(grupo);
@@ -138,13 +152,10 @@ public class AdaptadorEstudiante extends BaseAdapter {
                         } catch (Exception e) {
                             Toast.makeText(activity, "Error" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 });
             }
         });
-
-
         //Boton eliminar
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,7 +172,6 @@ public class AdaptadorEstudiante extends BaseAdapter {
 
                     }
                 });
-
                 confirma.setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -171,11 +181,9 @@ public class AdaptadorEstudiante extends BaseAdapter {
                         Toast.makeText(activity, "Registro eliminado", Toast.LENGTH_SHORT).show();
                     }
                 });
-
                 confirma.show();
             }
         });
-
         return v;
     }
 }

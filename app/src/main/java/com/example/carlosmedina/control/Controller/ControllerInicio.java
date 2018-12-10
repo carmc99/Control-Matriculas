@@ -47,6 +47,8 @@ public class ControllerInicio extends AppCompatActivity {
     ArrayList<Estudiante> lstEstudiante;
     Estudiante e;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,30 +118,61 @@ public class ControllerInicio extends AppCompatActivity {
     }
     private void sincronizarConFireBase() {
         lstEstudiante = daoEst.getLstEstudiantes();
-
-        try{
-            if(lstEstudiante == null || lstEstudiante.size() == 0)
-            {
-                Toast.makeText(activity, "No existen datos para sincronizar", Toast.LENGTH_SHORT).show();
-            }
-            else{
-                for (Estudiante i: lstEstudiante){
-                    Map<String, Object> datosUsuarios = new HashMap<>();
-                    datosUsuarios.put("ID", i.getId());
-                    datosUsuarios.put("CEDULA", i.getCedula());
-                    datosUsuarios.put("NOMBRES", i.getNombre());
-                    datosUsuarios.put("APELLIDOS", i.getApellido());
-                    datosUsuarios.put("CELULAR", i.getCelular());
-                    datosUsuarios.put("TEL_FIJO", i.getTelFijo());
-                    datosUsuarios.put("EMAIL", i.getEmail());
-                    datosUsuarios.put("ESTADO_PAGO", i.getPago());
-                    datosUsuarios.put("GRUPO", i.getGrupo());
-                    databaseReference.child("USUARIOS").push().setValue(datosUsuarios);
+        if(isOnlineNet()){
+            try{
+                if(lstEstudiante == null || lstEstudiante.size() == 0)
+                {
+                    Toast.makeText(activity, "No existen datos para sincronizar", Toast.LENGTH_SHORT).show();
                 }
+                else{
+                    for (Estudiante i: lstEstudiante){
+                        Map<String, Object> datosUsuarios = new HashMap<>();
+                        datosUsuarios.put("ID", i.getId());
+                        datosUsuarios.put("CEDULA", i.getCedula());
+                        datosUsuarios.put("NOMBRES", i.getNombre());
+                        datosUsuarios.put("APELLIDOS", i.getApellido());
+                        datosUsuarios.put("CELULAR", i.getCelular());
+                        datosUsuarios.put("TEL_FIJO", i.getTelFijo());
+                        datosUsuarios.put("EMAIL", i.getEmail());
+                        datosUsuarios.put("GRUPO", i.getGrupo());
+                        datosUsuarios.put("CATEGORIA", i.getCategoria());
+                        datosUsuarios.put("FECHA_INCRIPCION", i.getFechaDeInscripcion());
+                        datosUsuarios.put("FECHA_NACIMIENTO", i.getFechaDeNacimiento());
+                        datosUsuarios.put("NUM_FALTAS", i.getFaltas());
+                        //Información acudiente
+                        datosUsuarios.put("ACUDIENTE", i.getNombreAcudiente());
+                        datosUsuarios.put("TEL_ACUDIENTE", i.getTelAcudiente());
+                        //Información contable:
+                        datosUsuarios.put("ESTADO_PAGO", i.getPago());
+                        datosUsuarios.put("FECHA_ULTIMO_PAGO", i.getFechaUltimoPago());
+                        datosUsuarios.put("FECHA_VENCIMIENTO_PAGO", i.getFechaVencimientoPago());
+                        databaseReference.child("USUARIOS").child(Integer.toString(i.getCedula())).setValue(datosUsuarios);
+                        Toast.makeText(activity, "Sincronización exitosa", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }catch (Exception e){
+                Toast.makeText(activity, "Error al sincronizar los datos con el servidor" + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        }catch (Exception e){
-            Toast.makeText(activity, "Error al sincronizar los datos con el servidor" + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+        else{
+            Toast.makeText(activity, "No hay conexión a la red", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public Boolean isOnlineNet() {
+
+        try {
+            Process p = java.lang.Runtime.getRuntime().exec("ping -c 1 www.google.es");
+
+            int val           = p.waitFor();
+            boolean reachable = (val == 0);
+            return reachable;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }

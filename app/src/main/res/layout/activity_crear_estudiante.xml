@@ -49,6 +49,26 @@
             android:inputType="phone"
             android:maxLength="15" />
 
+        <TextView
+            android:id="@+id/lb_info_contacto2"
+            style="@style/textView"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:gravity="left"
+            android:text="Fecha de nacimiento:"
+            android:textSize="18dp" />
+
+        <ImageButton
+            android:id="@+id/ib_obtener_fecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:background="@android:color/background_light"
+            android:contentDescription="Fecha de nacimiento"
+            android:src="@drawable/ic_event_black_24dp" />
+
         <RadioGroup
             android:id="@+id/gender"
             android:layout_width="match_parent"
@@ -86,8 +106,9 @@
             android:layout_margin="15dp"
             android:drawableLeft="@drawable/ic_phone_iphone_black_30dp"
             android:ems="10"
+            android:hint="Celular"
             android:inputType="phone"
-            android:maxLength="15"/>
+            android:maxLength="15" />
 
 
         <EditText
@@ -97,8 +118,9 @@
             android:layout_margin="15dp"
             android:drawableLeft="@drawable/ic_phone_black_30dp"
             android:ems="10"
+            android:hint="Telefono fijo"
             android:inputType="phone"
-            android:maxLength="15"/>
+            android:maxLength="15" />
 
         <EditText
             android:id="@+id/email"
@@ -107,8 +129,17 @@
             android:layout_margin="15dp"
             android:drawableLeft="@drawable/ic_email_black_30dp"
             android:ems="10"
+            android:hint="Email"
             android:inputType="textEmailAddress"
-            android:maxLength="60"/>
+            android:maxLength="60" />
+
+        <TextView
+            android:id="@+id/lb_info_acudiente"
+            style="@style/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/infoAcudiente" />
 
         <EditText
             android:id="@+id/acudiente"
@@ -116,7 +147,18 @@
             android:layout_height="40dp"
             android:layout_margin="15dp"
             android:hint="Acudiente"
-            android:maxLength="50"/>
+            android:maxLength="50" />
+
+        <EditText
+            android:id="@+id/celular_acudiente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:drawableLeft="@drawable/ic_phone_iphone_black_30dp"
+            android:ems="10"
+            android:hint="Celular"
+            android:inputType="phone"
+            android:maxLength="15" />
 
         <TextView
             android:id="@+id/lb_info_contacto3"
@@ -133,14 +175,27 @@
             android:layout_margin="15dp"
             android:drawableLeft="@drawable/ic_attach_money_black_30dp"
             android:ems="10"
-            android:inputType="text"
-            android:hint="Pago si/no" />
+            android:hint="Valor"
+            android:inputType="text" />
 
-        <Switch
-            android:id="@+id/switch2"
+        <EditText
+            android:id="@+id/categoria"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:hint="Categoria"
+            android:maxLength="50" />
+
+        <Button
+            android:id="@+id/btnPagar"
+            style="@style/BtnPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Switch" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:text="Pagar" />
 
         <LinearLayout
             android:layout_width="match_parent"

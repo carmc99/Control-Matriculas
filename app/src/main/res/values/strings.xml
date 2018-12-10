@@ -19,6 +19,18 @@
 
     <!--Crear estudiante-->
     <string name="infoContacto">Información de contacto: </string>
+    <string name="infoAcudiente">Información acudiente: </string>
+
+    <!--Spinner Categoria -->
+    <string-array name="categoria_array">
+        <item>Mixta</item>
+        <item>Menores</item>
+    </string-array>
+
+    <!--Fecha-->
+    <string name="titlulo_pickers">Obtener fecha y hora</string>
+    <string name="formato_fecha">dd/mm/yyyy</string>
+    <string name="formato_hora">hh:mm</string>
 
 
 </resources>

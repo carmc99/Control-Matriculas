@@ -17,10 +17,12 @@ public class daoEstudiante{
     Estudiante est;
     Context cx;
     String nombreDb = "DbEstudiantes";
-    //String tabla = "CREATE TABLE IF NOT EXISTS ESTUDIANTE(ID INTEGER PRIMARY KEY AUTOINCREMENT, CEDULA INTEGER, NOMBRE TEXT, APELLIDO TEXT, CELULAR TEXT, TELFIJO TEXT, EMAIL TEXT, PAGO TEXT)";
+    //String tabla = "CREATE TABLE IF NOT EXISTS ESTUDIANTE(ID INTEGER PRIMARY KEY AUTOINCREMENT, CEDULA INTEGER, NOMBRE TEXT," +
+    //        "APELLIDO TEXT, CELULAR TEXT, TELFIJO TEXT, EMAIL TEXT, PAGO TEXT, GRUPO INTEGER)";
     String tabla = "CREATE TABLE IF NOT EXISTS ESTUDIANTE(ID INTEGER PRIMARY KEY AUTOINCREMENT, CEDULA INTEGER, NOMBRE TEXT," +
-            "APELLIDO TEXT, CELULAR TEXT, TELFIJO TEXT, EMAIL TEXT, PAGO TEXT, GRUPO INTEGER)";
-    String detalleEst = "CREATE TABLE IF NOT EXISTS ESTDETALLE(ID INTEGER PRIMARY KEY AUTOINCREMENT,PAGO TEXT,CATEGORIA TEXT, EPS TEXT)";
+           "APELLIDO TEXT, CELULAR TEXT, TELFIJO TEXT, EMAIL TEXT, GENERO TEXT,PAGO TEXT, GRUPO INTEGER, CATEGORIA TEXT, FECHA_NACIMIENTO TEXT," +
+            "ACUDIENTE TEXT, TEL_ACUDIENTE TEXT, FECHA_INCRIPCION TEXT, FECHA_ULTIMO_PAGO TEXT, FECHA_VENCIMIENTO_PAGO TEXT,"+
+            "NUM_FALTAS INTEGER)";
     public daoEstudiante(Context cx) {
         this.cx = cx;
         /*String clearDBQuery = "DELETE FROM " + "ESTUDIANTE";
@@ -28,45 +30,76 @@ public class daoEstudiante{
         db = cx.openOrCreateDatabase(nombreDb, Context.MODE_PRIVATE, null);
         db.execSQL(tabla);
         //db.execSQL(detalleEst);
-
-
     }
 
     public boolean insertar(Estudiante e) {
+            int cedula;
+            boolean repetido = false;
+            Cursor curso = db.rawQuery("SELECT CEDULA FROM ESTUDIANTE WHERE CEDULA='" + e.getCedula() + "'", null);
+            if (curso != null && curso.getCount() > 0) {
+                curso.moveToFirst();
+                do {
+                    cedula = curso.getInt(1);          //CEDULA
+                    if(cedula==e.getCedula()){
+                        repetido = true;
+                    }
+                } while (curso.moveToNext());
+            }
             ContentValues contenedor = new ContentValues();
-            contenedor.put("cedula", e.getCedula());
-            contenedor.put("pago", e.getPago());
-            //contenedor.put("falta", 1);
-            contenedor.put("nombre", e.getNombre());
-            contenedor.put("apellido", e.getApellido());
-            //contenedor.put("fechaInscripcion", "15/32");
-            contenedor.put("celular", e.getCelular());
-            contenedor.put("telFijo", e.getTelFijo());
-            contenedor.put("email", e.getEmail());
-            contenedor.put("grupo", e.getGrupo());
-
-        return (db.insert("estudiante", null, contenedor))>0;
+            //Información personal:
+            contenedor.put("CEDULA", e.getCedula());
+            contenedor.put("NOMBRE", e.getNombre());
+            contenedor.put("APELLIDO", e.getApellido());
+            contenedor.put("GENERO", e.getGrupo());
+            contenedor.put("CELULAR", e.getCelular());
+            contenedor.put("TELFIJO", e.getTelFijo());
+            contenedor.put("EMAIL", e.getEmail());
+            contenedor.put("GRUPO", e.getGrupo());
+            contenedor.put("CATEGORIA", e.getCategoria());
+            contenedor.put("FECHA_INCRIPCION", e.getFechaDeInscripcion());
+            contenedor.put("FECHA_NACIMIENTO", e.getFechaDeNacimiento());
+            contenedor.put("NUM_FALTAS", e.getFaltas());
+            //Información acudiente
+            contenedor.put("ACUDIENTE", e.getNombreAcudiente());
+            contenedor.put("TEL_ACUDIENTE", e.getTelAcudiente());
+            //Información contable:
+            contenedor.put("PAGO", e.getPago());
+            contenedor.put("FECHA_ULTIMO_PAGO", e.getFechaUltimoPago());
+            contenedor.put("FECHA_VENCIMIENTO_PAGO", e.getFechaVencimientoPago());
+        if (!repetido){
+            return (db.insert("ESTUDIANTE", null, contenedor))>0;
+        }
+        return false;
     }
 
+
+
     public boolean eliminar(int id) {
-       return db.delete("estudiante","ID="+ id,null)>0;
+       return db.delete("ESTUDIANTE","ID="+ id,null)>0;
     }
 
     public boolean editar(Estudiante e) {
         ContentValues contenedor = new ContentValues();
-        contenedor.put("cedula", e.getCedula());
-        contenedor.put("pago", e.getPago());
-        //contenedor.put("falta", 1);
-        contenedor.put("nombre", e.getNombre());
-        contenedor.put("apellido", e.getApellido());
-        //contenedor.put("fechaInscripcion", "15/32");
-        contenedor.put("celular", e.getCelular());
-        contenedor.put("telFijo", e.getTelFijo());
-        contenedor.put("email", e.getEmail());
+        //Información personal:
+        contenedor.put("CEDULA", e.getCedula());
+        contenedor.put("NOMBRE", e.getNombre());
+        contenedor.put("APELLIDO", e.getApellido());
+        contenedor.put("CELULAR", e.getCelular());
+        contenedor.put("TELFIJO", e.getTelFijo());
+        contenedor.put("EMAIL", e.getEmail());
+        contenedor.put("CATEGORIA", e.getCategoria());
+        contenedor.put("FECHA_NACIMIENTO", e.getFechaDeNacimiento());
+        contenedor.put("NUM_FALTAS", e.getFaltas());
+        //Información acudiente
+        contenedor.put("ACUDIENTE", e.getNombreAcudiente());
+        contenedor.put("TEL_ACUDIENTE", e.getTelAcudiente());
+        //Información contable:
+        contenedor.put("PAGO", e.getPago());
+        contenedor.put("FECHA_ULTIMO_PAGO", e.getFechaUltimoPago());
+        contenedor.put("FECHA_VENCIMIENTO_PAGO", e.getFechaVencimientoPago());
 
-        return (db.update("estudiante", contenedor, "ID=" + e.getId(),null))>0;
+        return (db.update("ESTUDIANTE", contenedor, "ID=" + e.getId(),null))>0;
     }
-
     public ArrayList<Estudiante> getLstGeneralEstudiantes(int grupo) {
         lstEstudiantes.clear();
         Cursor curso = db.rawQuery("SELECT * FROM ESTUDIANTE WHERE GRUPO='" + grupo + "'", null);
@@ -75,19 +108,27 @@ public class daoEstudiante{
             do {
                 //Obtiene elemento por elemento de la DB, lo agrega a un array de tipo Estudiante, para finalmente agregarlo a una lista de estudiantes.
                 lstEstudiantes.add(new Estudiante(
-                        curso.getInt(0),     //ID
-                        curso.getInt(1),     //cedula
-                        curso.getString(2),  //nombres
-                        curso.getString(3),  //apellidos
-                        curso.getString(4),  //celular
-                        curso.getString(5),  //telFijo
-                        curso.getString(6),   //Email
-                        curso.getString(7),    //pago
-                        curso.getInt(8)       //grupo
+                        curso.getInt(0),           //ID
+                        curso.getInt(1),           //CEDULA
+                        curso.getString(2),        //NOMBRE
+                        curso.getString(3),        //APELLIDO
+                        curso.getString(4),        //CELULAR
+                        curso.getString(5),        //TELFIJO
+                        curso.getString(6),        //EMAIL
+                        curso.getString(7),        //GENERO
+                        curso.getString(8),        //PAGO
+                        curso.getInt(9),           //GRUPO
+                        curso.getString(10),       //CATEGORIA
+                        curso.getString(11),       //FECHA_NACIMIENTO
+                        curso.getString(12),       //ACUDIENTE
+                        curso.getString(13),       //TEL_ACUDIENTE
+                        curso.getString(14),       //FECHA_INCRIPCION
+                        curso.getString(15),       //FECHA_ULTIMO_PAGO
+                        curso.getString(16),       //FECHA_VENCIMIENTO_PAGO
+                        curso.getInt(17)       //NUM_FALTAS
                 ));
             } while (curso.moveToNext());
         }
-
         return lstEstudiantes;
     }
     public ArrayList<Estudiante> getLstEstudiantes() {
@@ -98,15 +139,24 @@ public class daoEstudiante{
             do {
                 //Obtiene elemento por elemento de la DB, lo agrega a un array de tipo Estudiante, para finalmente agregarlo a una lista de estudiantes.
                 lstEstudiantes.add(new Estudiante(
-                        curso.getInt(0),     //ID
-                        curso.getInt(1),     //cedula
-                        curso.getString(2),  //nombres
-                        curso.getString(3),  //apellidos
-                        curso.getString(4),  //celular
-                        curso.getString(5),  //telFijo
-                        curso.getString(6),   //Email
-                        curso.getString(7),    //pago
-                        curso.getInt(8)       //grupo
+                        curso.getInt(0),           //ID
+                        curso.getInt(1),           //CEDULA
+                        curso.getString(2),        //NOMBRE
+                        curso.getString(3),        //APELLIDO
+                        curso.getString(4),        //CELULAR
+                        curso.getString(5),        //TELFIJO
+                        curso.getString(6),        //EMAIL
+                        curso.getString(7),        //GENERO
+                        curso.getString(8),        //PAGO
+                        curso.getInt(9),           //GRUPO
+                        curso.getString(10),       //CATEGORIA
+                        curso.getString(11),       //FECHA_NACIMIENTO
+                        curso.getString(12),       //ACUDIENTE
+                        curso.getString(13),       //TEL_ACUDIENTE
+                        curso.getString(14),       //FECHA_INCRIPCION
+                        curso.getString(15),       //FECHA_ULTIMO_PAGO
+                        curso.getString(16),       //FECHA_VENCIMIENTO_PAGO
+                        curso.getInt(17)       //NUM_FALTAS
                 ));
             } while (curso.moveToNext());
         }
@@ -118,15 +168,24 @@ public class daoEstudiante{
         Cursor curso = db.rawQuery("SELECT * FROM estudiante", null);
         curso.moveToPosition(cedula);
         est = new Estudiante(
-                curso.getInt(0),     //ID
-                curso.getInt(1),     //cedula
-                curso.getString(2),  //nombres
-                curso.getString(3),  //apellidos
-                curso.getString(4),  //celular
-                curso.getString(5),  //telFijo
-                curso.getString(6),  //email
-                curso.getString(7),   //pago
-                curso.getInt(8)       //grupo
+                curso.getInt(0),           //ID
+                curso.getInt(1),           //CEDULA
+                curso.getString(2),        //NOMBRE
+                curso.getString(3),        //APELLIDO
+                curso.getString(4),        //CELULAR
+                curso.getString(5),        //TELFIJO
+                curso.getString(6),        //EMAIL
+                curso.getString(7),        //GENERO
+                curso.getString(8),        //PAGO
+                curso.getInt(9),           //GRUPO
+                curso.getString(10),       //CATEGORIA
+                curso.getString(11),       //FECHA_NACIMIENTO
+                curso.getString(12),       //ACUDIENTE
+                curso.getString(13),       //TEL_ACUDIENTE
+                curso.getString(14),       //FECHA_INCRIPCION
+                curso.getString(15),       //FECHA_ULTIMO_PAGO
+                curso.getString(16),       //FECHA_VENCIMIENTO_PAGO
+                curso.getInt(17)       //NUM_FALTAS
         );
         return est;
     }
