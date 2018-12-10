@@ -6,19 +6,22 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/fresca</item>
+
     </style>
 
 
     <!--Fin estilo de texto primario-->
 
     <!--Estilo de botones primarios-->
-    <style name="BtnPrimary" parent="Widget.MaterialComponents.BottomAppBar.Colored">
+    <style name="BtnPrimary" parent="">
+        <item name="android:fontFamily">@font/fresca</item>
         <item name="android:textSize">16dp</item>
         <item name="android:layout_margin">12dp</item>
-        <item name="android:textColor">@color/lightPrimaryColor</item>
+        <item name="android:textColor">@color/light_grey</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">60dp</item>
-        <item name="android:background">@android:drawable/dialog_holo_light_frame</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
     </style>
     <!--Fin estilo de botones primarios-->
 
@@ -49,7 +52,7 @@
 
     <!--Estilo de tablas-->
     <style name="tabla">
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">26dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">285dp</item>
         <item name="android:layout_alignParentTop">true</item>
@@ -85,13 +88,12 @@
         <item name="android:textAlignment">center</item>
         <item name="android:gravity">right</item>
         <item name="android:backgroundTint">@color/eliminarEstudiante</item>
-        <item name="android:background">@android:drawable/dialog_holo_light_frame</item>
     </style>
     <!--Fin estilo de Eliminar -->
 
     <!--Estilo de TextView -->
     <style name="textView">
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">26dp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

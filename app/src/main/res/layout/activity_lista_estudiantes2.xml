@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="367dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -17,26 +17,29 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="@android:drawable/dialog_holo_light_frame"
+            android:backgroundTint="@color/colorAccent"
             android:src="@drawable/ic_group_black_24dp" />
 
         <TextView
             android:id="@+id/labelSeccion2"
             style="@style/lblPrimary"
-            android:layout_width="287dp"
+            android:layout_width="300dp"
             android:layout_height="65dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:text="@string/seccionListaEstudiantes"
+            android:gravity="center_vertical"
+            android:text="Información de matricula"
             android:textAllCaps="false"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="30dp"
             tools:layout_editor_absoluteY="16dp" />
     </LinearLayout>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="30dp"
         android:layout_above="@+id/listview_general"
         android:layout_alignParentStart="true"
         android:background="@color/colorPrimary">
@@ -47,15 +50,16 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="91dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_column="0"
                 android:padding="3dip"
-                android:text="Al día"
+                android:text="Vencimiento"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="134dp"
@@ -63,36 +67,32 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_column="0"
-                android:layout_marginEnd="105dp"
+                android:layout_marginEnd="95dp"
                 android:padding="3dip"
                 android:text="Nombre"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
         </RelativeLayout>
 
     </TableRow>
 
-    <Button
-        android:id="@+id/btnAddEstudiante"
-        style="@style/BtnPrimary"
-        android:layout_width="372dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/añadirEstudiante"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="495dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="80dp"
-        android:layout_marginRight="3dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteY="440dp">
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/btnAddEstudiante"
+            style="@style/BtnPrimary"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:text="@string/añadirEstudiante"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="495dp" />
     </LinearLayout>
 
     <ListView
@@ -101,9 +101,10 @@
         android:layout_height="277dp"
         android:layout_centerInParent="true"
         android:layout_marginRight="10dp"
+        android:descendantFocusability="blocksDescendants"
         android:dividerHeight="1dp"
         android:padding="2dp"
-        android:paddingEnd="5dp"
-        android:descendantFocusability="blocksDescendants"
-        />
+        android:paddingEnd="5dp">
+
+    </ListView>
 </RelativeLayout>

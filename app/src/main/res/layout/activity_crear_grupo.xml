@@ -50,7 +50,6 @@
                 android:id="@+id/btnCrearGrupo"
                 style="@style/BtnPrimary"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"
@@ -61,12 +60,11 @@
                 android:id="@+id/btnCancelar"
                 style="@style/BtnPrimary"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
-                android:text="Cancelar"
-                android:backgroundTint="@color/eliminarEstudiante"/>
+                android:backgroundTint="@color/eliminarEstudiante"
+                android:text="Cancelar" />
 
         </LinearLayout>
 

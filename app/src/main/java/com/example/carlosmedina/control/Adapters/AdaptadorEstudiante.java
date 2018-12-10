@@ -78,7 +78,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
         //Rellenamos los valores de cada columna de la fila
         columna1.setText(est.getNombre() + " " + est.getApellido());
         //columna2.setText(est.getApellido());
-        columna3.setText(est.getPago());
+        columna3.setText(est.getFechaVencimientoPago());
         //Boton editar
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +88,7 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 final Dialog dialog = new Dialog(activity, android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);
                 dialog.setTitle("Editar registro");
                 dialog.setCancelable(true);
-                dialog.setContentView(R.layout.activity_crear_estudiante);
+                dialog.setContentView(R.layout.activity_editar_estudiante);
                 dialog.show();
                 final EditText cedula = (EditText) dialog.findViewById(R.id.cedula);
                 final EditText nombre = (EditText) dialog.findViewById(R.id.nombres);
@@ -99,12 +99,12 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 final EditText pago = (EditText) dialog.findViewById(R.id.pago);
                 final EditText nombreAcudiente = (EditText) dialog.findViewById(R.id.acudiente);
                 final EditText telAcudiente = (EditText) dialog.findViewById(R.id.celular_acudiente);
-                final String categoria ="Mixta";
-                final String fechaNacimiento ="01/2";
-                final String genero = "Masculino";
-                final int numFaltas = 1;
-                final String fechaUltimoPago ="2";
-                final String fechaVencimientoPago ="1";
+                final EditText categoria = (EditText) dialog.findViewById(R.id.categoria);
+                final EditText fechaVencimiento = (EditText) dialog.findViewById(R.id.fechaVencimiento);
+                final EditText fechaPago = (EditText) dialog.findViewById(R.id.fechaPago);
+                //final String fechaNacimiento ="01/2";
+                //final String genero = "Masculino";
+                //final int numFaltas = 1;
 
                 Button btnGuardar = (Button) dialog.findViewById(R.id.btnCrearEstudiante);
                 Button btnCancelar = (Button) dialog.findViewById(R.id.btnCancelar);
@@ -120,6 +120,9 @@ public class AdaptadorEstudiante extends BaseAdapter {
                 email.setText(est.getEmail());
                 nombreAcudiente.setText(est.getNombreAcudiente());
                 telAcudiente.setText(est.getTelAcudiente());
+                categoria.setText(est.getCategoria());
+                fechaVencimiento.setText(est.getFechaVencimientoPago());
+                fechaPago.setText(est.getFechaUltimoPago());
 
 
                 btnGuardar.setOnClickListener(new View.OnClickListener() {
@@ -136,13 +139,11 @@ public class AdaptadorEstudiante extends BaseAdapter {
                                     fijo.getText().toString(),
                                     email.getText().toString(),
                                     pago.getText().toString(),
-                                    categoria,
-                                    fechaNacimiento,
+                                    categoria.getText().toString(),
                                     nombreAcudiente.getText().toString(),
                                     telAcudiente.getText().toString(),
-                                    fechaUltimoPago,
-                                    fechaVencimientoPago,
-                                    numFaltas
+                                    fechaPago.getText().toString(),
+                                    fechaVencimiento.getText().toString()
                             );
                             daoEst.editar(est);
                             lstEstudiante = daoEst.getLstGeneralEstudiantes(grupo);

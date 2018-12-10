@@ -44,7 +44,7 @@ public class Estudiante {
         this.faltas = faltas;
     }
 
-    public Estudiante(int id, int cedula, String nombre, String apellido, String celular, String telFijo, String email, String pago, String categoria, String fechaDeNacimiento, String nombreAcudiente, String telAcudiente, String fechaUltimoPago, String fechaVencimientoPago, int faltas) {
+    public Estudiante(int id, int cedula, String nombre, String apellido, String celular, String telFijo, String email, String pago, String categoria, String nombreAcudiente, String telAcudiente, String fechaUltimoPago, String fechaVencimientoPago) {
         this.id = id;
         this.cedula = cedula;
         this.nombre = nombre;
@@ -61,6 +61,7 @@ public class Estudiante {
         this.fechaVencimientoPago = fechaVencimientoPago;
         this.faltas = faltas;
     }
+
 
     public Estudiante(int cedula, String nombre, String apellido, String celular, String telFijo, String email, String genero, String pago, int grupo, String categoria, String fechaDeNacimiento, String nombreAcudiente, String telAcudiente, String fechaDeInscripcion, String fechaUltimoPago, String fechaVencimientoPago, int faltas) {
         this.cedula = cedula;

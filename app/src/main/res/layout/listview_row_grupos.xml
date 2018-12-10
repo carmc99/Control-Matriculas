@@ -17,7 +17,7 @@
         android:layout_margin="1dp"
         android:layout_marginLeft="2dp"
         android:layout_weight="1"
-        android:background="@drawable/ic_group_black_24dp"
+        android:background="@drawable/ic_group_blue_24dp"
         android:contentDescription="@string/app_name"
         android:padding="2dp" />
 
@@ -36,7 +36,7 @@
             android:layout_gravity="right"
             android:layout_margin="1dp"
             android:maxLength="30"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -59,7 +59,7 @@
                     android:layout_weight="1"
                     android:maxLength="200"
                     android:paddingTop="1dp"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 

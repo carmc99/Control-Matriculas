@@ -1,6 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<ScrollView
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/foto_estudiante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="16dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_avatar_1" />
+
+        <EditText
+            android:id="@+id/nombres"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:hint="Nombres"
+            android:maxLength="60" />
+
+        <EditText
+            android:id="@+id/apellidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:hint="Apellidos"
+            android:maxLength="60" />
+
+
+        <EditText
+            android:id="@+id/cedula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:hint="Cedula"
+            android:inputType="phone"
+            android:maxLength="15" />
+
+        <TextView
+            android:id="@+id/lb_info_contacto2"
+            style="@style/textView"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:gravity="left"
+            android:text="Fecha de nacimiento:"
+            android:textSize="18dp" />
+
+        <ImageButton
+            android:id="@+id/ib_obtener_fecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:background="@android:color/background_light"
+            android:contentDescription="Fecha de nacimiento"
+            android:src="@drawable/ic_event_black_24dp" />
+
+        <EditText
+            android:id="@+id/categoria"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:hint="Categoria"
+            android:maxLength="50" />
+
+        <RadioGroup
+            android:id="@+id/gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="horizontal">
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/lb_info_contacto"
+            style="@style/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/infoContacto" />
+
+        <EditText
+            android:id="@+id/celular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:drawableLeft="@drawable/ic_phone_iphone_black_30dp"
+            android:ems="10"
+            android:hint="Celular"
+            android:inputType="phone"
+            android:maxLength="15" />
+
+
+        <EditText
+            android:id="@+id/fijo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:drawableLeft="@drawable/ic_phone_black_30dp"
+            android:ems="10"
+            android:hint="Telefono fijo"
+            android:inputType="phone"
+            android:maxLength="15" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:drawableLeft="@drawable/ic_email_black_30dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:maxLength="60" />
+
+        <TextView
+            android:id="@+id/lb_info_acudiente"
+            style="@style/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/infoAcudiente" />
+
+        <EditText
+            android:id="@+id/acudiente"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:hint="Acudiente"
+            android:maxLength="50" />
+
+        <EditText
+            android:id="@+id/celular_acudiente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:drawableLeft="@drawable/ic_phone_iphone_black_30dp"
+            android:ems="10"
+            android:hint="Celular"
+            android:inputType="phone"
+            android:maxLength="15" />
+
+        <TextView
+            android:id="@+id/lb_info_contacto3"
+            style="@style/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Información contable" />
+
+        <EditText
+            android:id="@+id/pago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:drawableLeft="@drawable/ic_attach_money_black_30dp"
+            android:ems="10"
+            android:hint="Valor"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/fechaVencimiento"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:hint="Fecha vencimiento"
+            android:maxLength="50" />
+
+        <EditText
+            android:id="@+id/fechaPago"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:hint="Fecha pago"
+            android:maxLength="50" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCrearEstudiante"
+                style="@style/BtnPrimary"
+                android:layout_weight="1"
+                android:text="Guardar" />
+
+            <Button
+                android:id="@+id/btnCancelar"
+                style="@style/BtnPrimary"
+                android:layout_weight="1"
+                android:backgroundTint="@color/eliminarEstudiante"
+                android:text="Cancelar" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

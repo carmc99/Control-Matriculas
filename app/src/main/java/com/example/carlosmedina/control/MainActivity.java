@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 //Abrir formulario para crear estudiante
                 dialogo.show();
                 //RadioButton radioButtonMasculino= (RadioButton) findViewById(R.id.male);
-                final RadioButton radioButtonFemenino = (RadioButton) findViewById(R.id.female);
+                //final RadioButton radioButtonFemenino = (RadioButton) findViewById(R.id.female);
                 final EditText cedula = (EditText) dialogo.findViewById(R.id.cedula);
                 final EditText nombre = (EditText) dialogo.findViewById(R.id.nombres);
                 final EditText apellidos = (EditText) dialogo.findViewById(R.id.apellidos);

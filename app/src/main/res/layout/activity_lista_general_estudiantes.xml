@@ -17,17 +17,20 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="@android:drawable/dialog_holo_light_frame"
-            android:src="@drawable/ic_group_black_24dp" />
+            android:src="@drawable/ic_group_black_24dp"
+            android:backgroundTint="@color/colorAccent"/>
 
         <TextView
             android:id="@+id/labelSeccion2"
             style="@style/lblPrimary"
+            android:textStyle="bold"
             android:layout_width="287dp"
             android:layout_height="65dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:text="@string/seccionListaEstudiantes"
             android:textAllCaps="false"
             tools:layout_editor_absoluteX="30dp"
@@ -36,7 +39,7 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="30dp"
         android:layout_above="@+id/listview_general"
         android:layout_alignParentStart="true"
         android:background="@color/colorPrimary">
@@ -55,7 +58,8 @@
                 android:padding="3dip"
                 android:text="Grupo"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="134dp"
@@ -67,21 +71,29 @@
                 android:padding="3dip"
                 android:text="Nombre"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
         </RelativeLayout>
 
     </TableRow>
 
-    <Button
-        android:id="@+id/btnVolver"
-        style="@style/BtnPrimary"
-        android:layout_width="372dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Volver"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="495dp" />
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnVolver"
+            style="@style/BtnPrimary"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:text="Volver"
+            tools:layout_editor_absoluteX="12dp"
+            tools:layout_editor_absoluteY="495dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
